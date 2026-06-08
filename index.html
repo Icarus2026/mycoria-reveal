@@ -69,6 +69,7 @@ p { font-size: clamp(14px, 1.5vw, 16px); font-weight: 300; line-height: 1.75; co
   position: absolute;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
 }
 .hero-bg-image {
   position: absolute;
@@ -79,10 +80,14 @@ p { font-size: clamp(14px, 1.5vw, 16px); font-weight: 300; line-height: 1.75; co
 }
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   text-align: center;
   max-width: 800px;
   padding: 0 2rem;
+}
+/* GSAP pre-animation states — prevents flash-of-invisible on slow CDN */
+.hero-logo, .hero-headline, .hero-subhead, .hero-rule, .hero-label, .hero-scroll {
+  will-change: transform, opacity;
 }
 .hero-logo {
   width: 80px;
@@ -721,29 +726,43 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init canvas
   initNetworkCanvas();
 
-  // Hero timeline
-  const heroTl = gsap.timeline({ delay: 0.5 });
-  heroTl
-    .from('.hero-logo', { opacity: 0, y: 30, duration: 1.2, ease: 'power3.out' })
-    .from('.hero-headline', { opacity: 0, y: 40, duration: 1.4, ease: 'power3.out' }, '-=0.8')
-    .from('.hero-subhead', { opacity: 0, y: 20, duration: 1, ease: 'power3.out' }, '-=0.9')
-    .from('.hero-rule', { scaleX: 0, duration: 1, ease: 'power3.inOut', transformOrigin: 'left center' }, '-=0.7')
-    .from('.hero-label', { opacity: 0, duration: 0.8 }, '-=0.4')
-    .from('.hero-scroll', { opacity: 0, y: -10, duration: 0.8 }, '-=0.3');
+  // Set initial states explicitly before animating — prevents GSAP flash-of-invisible
+  gsap.set(['.hero-logo', '.hero-headline', '.hero-subhead', '.hero-rule', '.hero-label', '.hero-scroll'], {
+    autoAlpha: 0
+  });
+  gsap.set(['.hero-logo', '.hero-headline', '.hero-subhead', '.hero-label'], { y: 30 });
+  gsap.set('.hero-scroll', { y: -10 });
+  gsap.set('.hero-rule', { scaleX: 0, transformOrigin: 'center center' });
 
-  // Reveal on scroll
+  // Hero timeline — use to() not from() so state is explicit, no delay needed
+  const heroTl = gsap.timeline({ delay: 0.2 });
+  heroTl
+    .to('.hero-logo', { autoAlpha: 1, y: 0, duration: 1.2, ease: 'power3.out' })
+    .to('.hero-headline', { autoAlpha: 1, y: 0, duration: 1.4, ease: 'power3.out' }, '-=0.8')
+    .to('.hero-subhead', { autoAlpha: 0.7, y: 0, duration: 1, ease: 'power3.out' }, '-=0.9')
+    .to('.hero-rule', { scaleX: 1, autoAlpha: 1, duration: 1, ease: 'power3.inOut' }, '-=0.7')
+    .to('.hero-label', { autoAlpha: 1, y: 0, duration: 0.8 }, '-=0.4')
+    .to('.hero-scroll', { autoAlpha: 0.5, y: 0, duration: 0.8 }, '-=0.3');
+
+  // Reveal on scroll — use fromTo() to lock start/end states explicitly
   gsap.utils.toArray('.reveal-up').forEach(el => {
-    gsap.from(el, {
-      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
-      opacity: 0, y: 50, duration: 0.9, ease: 'power3.out'
-    });
+    gsap.fromTo(el,
+      { autoAlpha: 0, y: 50 },
+      {
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        autoAlpha: 1, y: 0, duration: 0.9, ease: 'power3.out'
+      }
+    );
   });
 
   gsap.utils.toArray('.reveal-stagger').forEach(container => {
-    gsap.from(container.children, {
-      scrollTrigger: { trigger: container, start: 'top 80%', toggleActions: 'play none none none' },
-      opacity: 0, y: 40, duration: 0.8, ease: 'power3.out', stagger: 0.15
-    });
+    gsap.fromTo(Array.from(container.children),
+      { autoAlpha: 0, y: 40 },
+      {
+        scrollTrigger: { trigger: container, start: 'top 80%', toggleActions: 'play none none none' },
+        autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.15
+      }
+    );
   });
 
   // Stat counters
@@ -772,10 +791,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Product image entrance
-  gsap.from('.product-main', {
-    scrollTrigger: { trigger: '.product-main', start: 'top 75%', toggleActions: 'play none none none' },
-    opacity: 0, scale: 0.92, duration: 1.4, ease: 'power3.out'
-  });
+  gsap.fromTo('.product-main',
+    { autoAlpha: 0, scale: 0.92 },
+    { scrollTrigger: { trigger: '.product-main', start: 'top 75%', toggleActions: 'play none none none' },
+      autoAlpha: 1, scale: 1, duration: 1.4, ease: 'power3.out' }
+  );
 
   // Paired shot Ken Burns
   gsap.to('.paired-shot', {
@@ -784,29 +804,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Pipeline cards
-  gsap.from('.pipeline-card', {
-    scrollTrigger: { trigger: '.pipeline-grid', start: 'top 75%', toggleActions: 'play none none none' },
-    opacity: 0, y: 60, scale: 0.95, duration: 0.9, ease: 'power3.out', stagger: 0.2
-  });
+  gsap.fromTo('.pipeline-card',
+    { autoAlpha: 0, y: 60, scale: 0.95 },
+    { scrollTrigger: { trigger: '.pipeline-grid', start: 'top 75%', toggleActions: 'play none none none' },
+      autoAlpha: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out', stagger: 0.2 }
+  );
 
   // Timeline line draw
-  gsap.from('.timeline-line', {
-    scrollTrigger: { trigger: '.timeline', start: 'top 75%', toggleActions: 'play none none none' },
-    scaleX: 0, transformOrigin: 'left', duration: 1.5, ease: 'power3.inOut'
-  });
-  gsap.from('.timeline-milestone', {
-    scrollTrigger: { trigger: '.timeline', start: 'top 75%', toggleActions: 'play none none none' },
-    opacity: 0, y: 20, duration: 0.6, ease: 'power3.out', stagger: 0.25, delay: 0.5
-  });
+  gsap.fromTo('.timeline-line',
+    { scaleX: 0 },
+    { scrollTrigger: { trigger: '.timeline', start: 'top 75%', toggleActions: 'play none none none' },
+      scaleX: 1, transformOrigin: 'left', duration: 1.5, ease: 'power3.inOut' }
+  );
+  gsap.fromTo('.timeline-milestone',
+    { autoAlpha: 0, y: 20 },
+    { scrollTrigger: { trigger: '.timeline', start: 'top 75%', toggleActions: 'play none none none' },
+      autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.25, delay: 0.5 }
+  );
 
   // Close section breathe
   gsap.to('.close-bg', {
     scale: 1.06, duration: 12, ease: 'sine.inOut', yoyo: true, repeat: -1
   });
-  gsap.from('.close-content > *', {
-    scrollTrigger: { trigger: '#close', start: 'top 65%', toggleActions: 'play none none none' },
-    opacity: 0, y: 40, duration: 1.2, ease: 'power3.out', stagger: 0.2
-  });
+  gsap.fromTo('.close-content > *',
+    { autoAlpha: 0, y: 40 },
+    { scrollTrigger: { trigger: '#close', start: 'top 65%', toggleActions: 'play none none none' },
+      autoAlpha: 1, y: 0, duration: 1.2, ease: 'power3.out', stagger: 0.2 }
+  );
 
   // Refresh triggers once images/fonts settle
   window.addEventListener('load', () => ScrollTrigger.refresh());
