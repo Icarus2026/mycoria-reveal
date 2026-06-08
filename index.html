@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mycoria · Brand Reveal · Prepared for Mountain Valley MD</title>
+<meta name="description" content="Mycoria: a world-class DTC plant biostimulant brand built on the Agrarius™ technology platform. Confidential brand reveal prepared by Icarus Digital." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Animation stack -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+<style>
+:root {
+  --forest:    #112018;
+  --deep-moss: #1F2B22;
+  --soil:      #2E2A26;
+  --clay:      #B9A78A;
+  --stone:     #E5E2DB;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--forest); color: var(--stone); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+
+/* Sections */
+.section { padding: 120px 0; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 1.5rem;
+}
+.section-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 3rem;
+}
+p { font-size: clamp(14px, 1.5vw, 16px); font-weight: 300; line-height: 1.75; color: var(--stone); opacity: 0.85; margin-bottom: 1.5rem; }
+
+/* ===== HERO ===== */
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  background: var(--forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+#network-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background: url('https://lh3.googleusercontent.com/d/1lvg1k1fRp7iIA8G6do2vCkhg4-IuBF_a=w2000') center/cover no-repeat;
+  opacity: 0.3;
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+.hero-logo {
+  width: 80px;
+  margin: 0 auto 2rem;
+  filter: brightness(0) invert(0.9);
+}
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem;
+}
+.hero-subhead {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-weight: 300;
+  color: var(--stone);
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+  margin: 0 0 2.5rem;
+}
+.hero-rule {
+  width: 120px;
+  height: 1px;
+  background: var(--clay);
+  margin: 0 auto 2rem;
+}
+.hero-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--clay);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.5;
+}
+.hero-scroll span {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.scroll-arrow {
+  width: 1px;
+  height: 40px;
+  background: var(--stone);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.5; }
+  50% { transform: scaleY(0.4); opacity: 0.2; }
+}
+
+/* ===== Two column ===== */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; margin-bottom: 5rem; }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+/* White space items */
+.white-space-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+.ws-line { width: 2px; align-self: stretch; background: var(--clay); flex-shrink: 0; }
+.white-space-item h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: var(--stone); margin-bottom: 0.5rem; }
+.white-space-item p { margin: 0; font-size: 13px; opacity: 0.7; }
+
+/* Stat strip */
+.stat-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 5rem; }
+.stat-card { background: var(--deep-moss); padding: 2.5rem 2rem; text-align: center; }
+.stat-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--clay); line-height: 1; margin-bottom: 0.75rem; }
+.stat-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); opacity: 0.6; }
+@media (max-width: 600px) { .stat-strip { grid-template-columns: 1fr; } }
+
+/* Science split */
+.section--split { display: grid; grid-template-columns: 45% 1fr; min-height: 80vh; padding: 0; }
+.science-image-wrap { position: relative; overflow: hidden; }
+.science-image { width: 100%; height: 120%; object-fit: cover; }
+.science-image-fade { position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--forest) 100%); }
+.science-content { padding: 120px 5vw 120px 4vw; }
+@media (max-width: 900px) { .section--split { grid-template-columns: 1fr; } .science-image-wrap { height: 60vw; } .science-image { height: 120%; } }
+
+/* Mechanism grid */
+.mechanism-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; margin-top: 3rem; }
+.mechanism-card { background: var(--deep-moss); padding: 2rem; border-top: 2px solid var(--clay); }
+.mechanism-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--stone); margin-bottom: 0.75rem; }
+.mechanism-card p { font-size: 13px; margin: 0; opacity: 0.75; }
+@media (max-width: 600px) { .mechanism-grid { grid-template-columns: 1fr; } }
+
+/* Proof strip */
+.proof-strip { background: var(--soil); display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 0; }
+.proof-item { padding: 3rem 2rem; text-align: center; background: var(--soil); }
+.proof-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 80px); font-weight: 300; color: var(--stone); line-height: 1; margin-bottom: 0.75rem; }
+.proof-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); opacity: 0.55; }
+@media (max-width: 600px) { .proof-strip { grid-template-columns: 1fr; } }
+
+/* Brand architecture */
+.brand-arch { display: flex; align-items: stretch; gap: 1rem; margin-bottom: 5rem; flex-wrap: wrap; }
+.arch-card { flex: 1; min-width: 180px; padding: 2rem; border: 1px solid rgba(229,226,219,0.1); }
+.arch-card--primary { border-color: var(--clay); background: var(--deep-moss); }
+.arch-card--secondary { background: var(--deep-moss); opacity: 0.85; }
+.arch-card--silent { background: var(--soil); opacity: 0.6; }
+.arch-role { display: block; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.75rem; }
+.arch-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; margin-bottom: 0.5rem; }
+.arch-card p { font-size: 12px; margin: 0; opacity: 0.65; }
+.arch-arrow { display: flex; align-items: center; font-size: 20px; color: var(--clay); opacity: 0.6; flex-shrink: 0; }
+@media (max-width: 768px) { .arch-arrow { transform: rotate(90deg); margin: 0 auto; } }
+
+/* Brand identity */
+.brand-identity { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; margin-bottom: 0; }
+.brand-identity-product img { width: 100%; max-width: 420px; }
+.palette { display: flex; gap: 2px; margin-bottom: 2.5rem; }
+.swatch { flex: 1; aspect-ratio: 1; display: flex; align-items: flex-end; padding: 0.5rem; }
+.swatch span { font-family: 'Inter', sans-serif; font-size: 9px; color: var(--stone); opacity: 0.7; line-height: 1.4; }
+.specimen-display { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; margin-bottom: 0.5rem; opacity: 1; }
+.specimen-label { font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; opacity: 0.85; }
+.specimen-body { font-size: 12px; opacity: 0.5; }
+@media (max-width: 768px) { .brand-identity { grid-template-columns: 1fr; } }
+
+/* Paired shot */
+.paired-shot-wrap { position: relative; overflow: hidden; height: 60vw; max-height: 700px; margin-top: 5rem; }
+.paired-shot { width: 100%; height: 100%; object-fit: cover; transform-origin: center; }
+.paired-shot-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, var(--forest) 0%, transparent 20%, transparent 80%, var(--forest) 100%); }
+
+/* Pipeline */
+.machine-intro { max-width: 700px; margin-bottom: 4rem; }
+.pipeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 4rem; }
+.pipeline-card { background: var(--forest); border-top: 2px solid var(--clay); padding: 2.5rem; transition: transform 0.2s ease, background 0.2s ease; }
+.pipeline-card:hover { background: rgba(31,43,34,0.8); transform: translateY(-4px); }
+.pipeline-tag { display: block; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 1.25rem; }
+.pipeline-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; line-height: 1.2; margin-bottom: 1rem; }
+.pipeline-card p { font-size: 13px; line-height: 1.7; margin: 0; opacity: 0.7; }
+.machine-quote { max-width: 700px; margin: 0 auto; font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.5vw, 28px); font-style: italic; font-weight: 300; color: var(--stone); opacity: 0.8; text-align: center; border-left: none; padding: 0; line-height: 1.6; }
+@media (max-width: 768px) { .pipeline-grid { grid-template-columns: 1fr; } }
+
+/* Plan */
+.tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 4rem; }
+.tier-card { background: var(--deep-moss); padding: 2.5rem; border-top: 2px solid transparent; transition: border-color 0.3s ease; }
+.tier-card:hover { border-top-color: var(--clay); }
+.tier-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--clay); opacity: 0.4; line-height: 1; margin-bottom: 1rem; }
+.tier-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 1rem; }
+.tier-card p { font-size: 13px; opacity: 0.7; margin-bottom: 1.5rem; }
+.tier-tag { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); }
+@media (max-width: 768px) { .tier-grid { grid-template-columns: 1fr; } }
+
+.pricing-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 5rem; }
+.pricing-item { background: var(--soil); padding: 2.5rem; text-align: center; }
+.pricing-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; color: var(--stone); margin-bottom: 0.75rem; }
+.pricing-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+@media (max-width: 600px) { .pricing-strip { grid-template-columns: 1fr; } }
+
+/* Timeline */
+.timeline { position: relative; padding: 3rem 0 2rem; }
+.timeline-line { position: absolute; top: calc(3rem + 24px); left: 0; right: 0; height: 1px; background: var(--clay); opacity: 0.3; }
+.timeline-milestones { display: flex; justify-content: space-between; position: relative; }
+.timeline-milestone { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex: 1; }
+.tm-month { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); }
+.tm-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
+.tm-label { font-family: 'Inter', sans-serif; font-size: 11px; text-align: center; opacity: 0.7; line-height: 1.5; }
+@media (max-width: 600px) { .timeline-milestones { flex-direction: column; gap: 2rem; } .timeline-line { display: none; } }
+
+/* Close */
+#close {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--forest);
+}
+.close-bg {
+  position: absolute;
+  inset: -5%;
+  background: url('https://lh3.googleusercontent.com/d/1lvg1k1fRp7iIA8G6do2vCkhg4-IuBF_a=w2000') center/cover no-repeat;
+  opacity: 0.3;
+}
+.close-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 680px;
+  padding: 0 5vw;
+}
+.close-logo { width: 64px; margin: 0 auto 2.5rem; filter: brightness(0) invert(0.9); }
+.close-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 72px); font-weight: 300; color: var(--stone); line-height: 1.1; margin-bottom: 2.5rem; }
+.close-rule { width: 80px; height: 1px; background: var(--clay); margin: 2rem auto; }
+.close-body { font-size: 15px; opacity: 0.75; line-height: 1.8; }
+.close-domain { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--stone); margin-bottom: 1rem; letter-spacing: 0.02em; }
+.close-credit { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay); opacity: 0.7; }
+</style>
+</head>
+<body>
+
+<!-- ===== SECTION 00 — HERO ===== -->
+<section id="hero">
+  <canvas id="network-canvas"></canvas>
+  <div class="hero-bg-image"></div>
+  <div class="hero-content">
+    <img class="hero-logo" src="https://lh3.googleusercontent.com/d/16g7E4DaikXRgGkyY9xteGQPQAsy9pEez=w400" alt="Mycoria" onerror="this.style.display='none'" />
+    <h1 class="hero-headline">Soil Biology.<br>Stronger Plants.</h1>
+    <p class="hero-subhead">A world-class DTC brand built on the Agrarius™ technology platform.</p>
+    <div class="hero-rule"></div>
+    <p class="hero-label">CONFIDENTIAL · JUNE 2026 · PREPARED BY ICARUS DIGITAL</p>
+  </div>
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 01 — THE OPPORTUNITY ===== -->
+<section id="opportunity" class="section" style="background:var(--deep-moss);">
+  <div class="section-inner">
+    <p class="section-label reveal-up">01 · THE OPPORTUNITY</p>
+    <h2 class="section-headline reveal-up">The Premium Lane Is Empty.</h2>
+
+    <div class="two-col">
+      <div class="col-left reveal-up">
+        <p>The consumer plant biostimulant category in 2026 is dominated by commodity bulk products: granular bags from garden centres, generic Amazon listings, agronomy wholesale with zero brand investment. No brand exists that combines premium science-backed positioning, DTC ecommerce infrastructure, single-serve convenience, and visual identity comparable to Seed Health or AG1.</p>
+        <p>The foliar-spray single-serve sachet format Mycoria is introducing does not exist in the market. The white space is not contested. It is unclaimed.</p>
+      </div>
+
+      <div class="col-right reveal-stagger">
+        <div class="white-space-item">
+          <div class="ws-line"></div>
+          <div>
+            <h4>No premium sachet format exists</h4>
+            <p>Every incumbent sells bottles, bags, or bulk kits. Nobody runs single-serve sachets.</p>
+          </div>
+        </div>
+        <div class="white-space-item">
+          <div class="ws-line"></div>
+          <div>
+            <h4>No science-forward DTC brand</h4>
+            <p>Biostimulant science is academic. Nobody has packaged it for the home grower.</p>
+          </div>
+        </div>
+        <div class="white-space-item">
+          <div class="ws-line"></div>
+          <div>
+            <h4>No subscribe-and-save model</h4>
+            <p>Nobody has built a subscription-first proposition in this category.</p>
+          </div>
+        </div>
+        <div class="white-space-item">
+          <div class="ws-line"></div>
+          <div>
+            <h4>No positioning against bottle fatigue</h4>
+            <p>Every serious grower complaint thread is asking for exactly this.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-strip reveal-stagger">
+      <div class="stat-card">
+        <span class="stat-number" data-counter data-target="2.04" data-prefix="$" data-suffix="B" data-decimals="2">$0B</span>
+        <span class="stat-label">Total Addressable Market</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-counter data-target="718" data-prefix="$" data-suffix="M">$0M</span>
+        <span class="stat-label">Serviceable Addressable Market</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-counter data-target="7" data-prefix="$" data-suffix="M">$0M</span>
+        <span class="stat-label">18-Month Revenue Target</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 02 — THE SCIENCE ===== -->
+<section id="science" class="section section--split" style="background:var(--forest);">
+  <div class="science-image-wrap">
+    <img class="science-image" src="https://lh3.googleusercontent.com/d/1W_GJUxWv069U-3_CloF-6GlDLqBC1WiC=w1600"
+      alt="Root system cross-section" loading="lazy" onerror="this.style.display='none'" />
+    <div class="science-image-fade"></div>
+  </div>
+
+  <div class="science-content">
+    <p class="section-label reveal-up">02 · THE SCIENCE</p>
+    <h2 class="section-headline reveal-up">Not a fertiliser.<br>A precision delivery system.</h2>
+    <p class="reveal-up">Agrarius™ works at 1 gram per hectare, not because it is a powerful chemical, but because it is not a chemical input at all. The active signalling molecule is encapsulated in a proprietary nano-encapsulation carbohydrate coating. It dissolves only on contact with plant physiology. Nothing is lost before it reaches the plant.</p>
+    <p class="reveal-up">Once inside, the molecule travels bidirectionally through both the xylem and the phloem, reaching every part of the plant from a single foliar spray. The plant does not receive a nutrient. It receives a signal. The biology does the rest.</p>
+
+    <div class="mechanism-grid reveal-stagger">
+      <div class="mechanism-card">
+        <h4>80–90%</h4>
+        <p>Nutrient uptake efficiency, versus the typical 10 to 15%.</p>
+      </div>
+      <div class="mechanism-card">
+        <h4>Bidirectional</h4>
+        <p>Dual xylem and phloem transport. One spray reaches the entire plant.</p>
+      </div>
+      <div class="mechanism-card">
+        <h4>Nano-Encapsulation</h4>
+        <p>Carbohydrate coating protects the molecule until plant contact. Zero tank degradation.</p>
+      </div>
+      <div class="mechanism-card">
+        <h4>ISR Activation</h4>
+        <p>Plants activate their own biological defence pathways. 47% reduction in pest damage in field trials.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="proof-strip">
+  <div class="proof-item">
+    <span class="proof-number" data-counter data-target="250" data-suffix="+">0</span>
+    <span class="proof-label">Independent field trials</span>
+  </div>
+  <div class="proof-item">
+    <span class="proof-number" data-counter data-target="89" data-suffix="%">0%</span>
+    <span class="proof-label">Success rate across all trials</span>
+  </div>
+  <div class="proof-item">
+    <span class="proof-number" data-counter data-target="75" data-suffix="%+">0%</span>
+    <span class="proof-label">Yield increase · India cotton trials</span>
+  </div>
+</div>
+
+<!-- ===== SECTION 03 — THE BRAND ===== -->
+<section id="brand" class="section" style="background:var(--forest);">
+  <div class="section-inner">
+    <p class="section-label reveal-up">03 · THE BRAND</p>
+    <h2 class="section-headline reveal-up">One product.<br>The rest is biology.</h2>
+
+    <p class="brand-intro reveal-up">Mycoria is not a garden brand. Not a cannabis brand. Not a wellness brand. It is the first consumer brand built on the language of plant intelligence: the mycelial network, the invisible biological architecture that connects and signals through every healthy soil system. Premium, precise, grounded in real science. No mascots, no woo, no bottle fatigue.</p>
+
+    <!-- Brand Architecture -->
+    <div class="brand-arch reveal-stagger">
+      <div class="arch-card arch-card--primary">
+        <span class="arch-role">Consumer Face</span>
+        <h3>Mycoria</h3>
+        <p>What growers buy and trust</p>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-card arch-card--secondary">
+        <span class="arch-role">Ingredient Brand</span>
+        <h3>Agrarius™</h3>
+        <p>The proof engine. Credited on-pack as "Powered by Agrarius™"</p>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-card arch-card--silent">
+        <span class="arch-role">Parent · Silent</span>
+        <h3>MVMD</h3>
+        <p>Technology origin. Never named on any consumer surface.</p>
+      </div>
+    </div>
+
+    <!-- Product + Identity -->
+    <div class="brand-identity">
+      <div class="brand-identity-product">
+        <img class="product-main" src="https://lh3.googleusercontent.com/d/1DPANcuepqBbBjKYL3NDTeJp1cKEdS6F5=w1200"
+          alt="Mycoria sachet" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+      <div class="brand-identity-meta">
+        <div class="palette reveal-stagger">
+          <div class="swatch" style="background:#112018"><span>#112018<br>Forest</span></div>
+          <div class="swatch" style="background:#1F2B22"><span>#1F2B22<br>Deep Moss</span></div>
+          <div class="swatch" style="background:#2E2A26"><span>#2E2A26<br>Soil</span></div>
+          <div class="swatch" style="background:#B9A78A"><span>#B9A78A<br>Clay</span></div>
+          <div class="swatch" style="background:#E5E2DB; color:#112018"><span style="color:#112018">#E5E2DB<br>Stone</span></div>
+        </div>
+        <div class="type-specimen reveal-up">
+          <p class="specimen-display">Mycoria</p>
+          <p class="specimen-label">PLANT BIOSTIMULANT</p>
+          <p class="specimen-body">Cormorant Garamond · Inter</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-width paired shot -->
+  <div class="paired-shot-wrap">
+    <img class="paired-shot" src="https://lh3.googleusercontent.com/d/1MMZm2QPk-P1zP3FnpHCj7vOH9Qnd8PvO=w2000"
+      alt="Mycoria product range" loading="lazy" onerror="this.style.display='none'" />
+    <div class="paired-shot-overlay"></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 04 — THE MACHINE ===== -->
+<section id="machine" class="section" style="background:var(--deep-moss);">
+  <div class="section-inner">
+    <p class="section-label reveal-up">04 · THE MACHINE</p>
+    <h2 class="section-headline reveal-up">This is not an agency engagement.</h2>
+    <p class="machine-intro reveal-up">Mycoria will be built and grown entirely through Icarus's proprietary agentic pipeline system. What would cost a traditional brand $300K to $500K in agency fees and marketing infrastructure is replaced by four interconnected AI-driven systems, live from day one.</p>
+
+    <div class="pipeline-grid">
+      <div class="pipeline-card">
+        <span class="pipeline-tag">AGENTIC SEO PIPELINE</span>
+        <h3>Organic growth<br>on autopilot.</h3>
+        <p>Automated content generation, keyword clustering, topical authority mapping, and technical SEO deployment. Grows organic search presence across every grower segment simultaneously, without manual content production.</p>
+      </div>
+      <div class="pipeline-card">
+        <span class="pipeline-tag">AGENTIC EMAIL RETENTION</span>
+        <h3>Retention that<br>thinks for itself.</h3>
+        <p>Lifecycle automation built on customer state, not time-based sequences. Welcome, post-purchase education, reactivation, and subscription defence, generated, tested, and deployed agentically.</p>
+      </div>
+      <div class="pipeline-card">
+        <span class="pipeline-tag">AGENTIC CREATIVE PIPELINE</span>
+        <h3>World-class creative<br>at machine scale.</h3>
+        <p>AI-native visual production: product photography, brand world imagery, social ad creative, and UGC-style content, generated at scale using the locked Mycoria brand spec. No photoshoots. No creative agency retainers.</p>
+      </div>
+      <div class="pipeline-card">
+        <span class="pipeline-tag">AGENTIC WEB DEV &amp; DESIGN</span>
+        <h3>Sovereign stack.<br>Full ownership.</h3>
+        <p>Next.js plus Medusa storefront. Icarus owns the stack, the data, and the conversion funnel. Design-to-deployment pipeline runs agentically. No Shopify lock-in, no platform dependency.</p>
+      </div>
+    </div>
+
+    <blockquote class="machine-quote reveal-up">
+      "Normally, this build would cost hundreds of thousands of dollars and take 18 months with a full marketing department. We're doing it with four systems and one operator."
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===== SECTION 05 — THE PLAN ===== -->
+<section id="plan" class="section" style="background:var(--forest);">
+  <div class="section-inner">
+    <p class="section-label reveal-up">05 · THE PLAN</p>
+    <h2 class="section-headline reveal-up">Three segments.<br>One product. $7M Year One.</h2>
+
+    <div class="tier-grid reveal-stagger">
+      <div class="tier-card">
+        <span class="tier-number">01</span>
+        <h3>Home Cannabis Growers</h3>
+        <p>~3M active US home growers in legal states. High WTP, 6 to 8 sachets per year, online-native acquisition. TAM: ~$1.24B.</p>
+        <span class="tier-tag">PRIMARY ACQUISITION CHANNEL</span>
+      </div>
+      <div class="tier-card">
+        <span class="tier-number">02</span>
+        <h3>Backyard Citrus &amp; Fruit Trees</h3>
+        <p>3 to 5M households across FL, CA, TX, AZ. HLB has devastated backyard citrus, and growers are actively seeking solutions. TAM: ~$450M.</p>
+        <span class="tier-tag">HIGHEST EMOTIONAL RESONANCE</span>
+      </div>
+      <div class="tier-card">
+        <span class="tier-number">03</span>
+        <h3>Homestead &amp; Regenerative Growers</h3>
+        <p>~5M mission-aligned US growers seeking to reduce inputs naturally. Highest lifetime brand loyalty. Content-driven acquisition. TAM: ~$400M.</p>
+        <span class="tier-tag">HIGHEST LTV SEGMENT</span>
+      </div>
+    </div>
+
+    <div class="pricing-strip reveal-stagger">
+      <div class="pricing-item">
+        <span class="pricing-number">$25</span>
+        <span class="pricing-label">Single sachet MSRP</span>
+      </div>
+      <div class="pricing-item">
+        <span class="pricing-number">$69</span>
+        <span class="pricing-label">4-pack subscribe &amp; save</span>
+      </div>
+      <div class="pricing-item">
+        <span class="pricing-number">$130–200</span>
+        <span class="pricing-label">Annual revenue per active customer</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-milestones">
+        <div class="timeline-milestone">
+          <span class="tm-month">Month 1–2</span>
+          <span class="tm-dot"></span>
+          <span class="tm-label">Brand launch<br>Storefront live</span>
+        </div>
+        <div class="timeline-milestone">
+          <span class="tm-month">Month 3–4</span>
+          <span class="tm-dot"></span>
+          <span class="tm-label">First 1,000<br>customers</span>
+        </div>
+        <div class="timeline-milestone">
+          <span class="tm-month">Month 6</span>
+          <span class="tm-dot"></span>
+          <span class="tm-label">$500K ARR<br>Subscribe base</span>
+        </div>
+        <div class="timeline-milestone">
+          <span class="tm-month">Month 12</span>
+          <span class="tm-dot"></span>
+          <span class="tm-label">$2M ARR<br>SEO compounding</span>
+        </div>
+        <div class="timeline-milestone">
+          <span class="tm-month">Month 18</span>
+          <span class="tm-dot"></span>
+          <span class="tm-label">$7M ARR<br>Full pipeline</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 06 — CLOSE ===== -->
+<section id="close">
+  <div class="close-bg"></div>
+  <div class="close-content">
+    <img src="https://lh3.googleusercontent.com/d/16g7E4DaikXRgGkyY9xteGQPQAsy9pEez=w400"
+      alt="Mycoria" class="close-logo" onerror="this.style.display='none'" />
+    <h2 class="close-headline">Stronger Roots.<br>Better Grows.</h2>
+    <div class="close-rule"></div>
+    <p class="close-body">The science exists. The trials are done. The technology is proven across 250+ independent field trials on multiple continents. What hasn't existed until now is a world-class consumer brand built around it, and the agentic infrastructure to grow it at a fraction of traditional cost.</p>
+    <p class="close-body">This is Mycoria. This is what we're building.</p>
+    <div class="close-rule"></div>
+    <p class="close-domain">growmycoria.com</p>
+    <p class="close-credit">Powered by Agrarius™ · Built by Icarus Digital</p>
+  </div>
+</section>
+
+<script>
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+/* ===== Canvas mycelial network ===== */
+function initNetworkCanvas() {
+  const canvas = document.getElementById('network-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const nodes = [];
+  const maxNodes = 180;
+  const maxDepth = 8;
+
+  function createNode(x, y, angle, depth, parentNode) {
+    if (depth > maxDepth) return null;
+    return {
+      x, y,
+      targetX: x + Math.cos(angle) * (Math.random() * 120 + 60) * (1 - depth * 0.08),
+      targetY: y + Math.sin(angle) * (Math.random() * 120 + 60) * (1 - depth * 0.08),
+      angle,
+      depth,
+      parent: parentNode,
+      progress: 0,
+      alpha: 0,
+      width: Math.max(0.3, 1.8 - depth * 0.2),
+      children: [],
+      branched: false
+    };
+  }
+
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
+  const seedAngles = Array.from({length: 7}, (_, i) => (i / 7) * Math.PI * 2);
+  seedAngles.forEach(angle => {
+    const node = createNode(cx, cy, angle + (Math.random() - 0.5) * 0.4, 0, null);
+    if (node) nodes.push(node);
+  });
+
+  function nodeColour(depth, alpha) {
+    const base = `229, 226, 219`;
+    const opacity = alpha * Math.max(0.15, 0.9 - depth * 0.1);
+    return `rgba(${base}, ${opacity})`;
+  }
+
+  let lastTime = 0;
+  const growSpeed = 0.018;
+
+  function animate(timestamp) {
+    const delta = Math.min((timestamp - lastTime) / 16.67, 3);
+    lastTime = timestamp;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const activeNodes = [...nodes];
+
+    activeNodes.forEach(node => {
+      if (node.progress < 1) {
+        node.progress = Math.min(1, node.progress + growSpeed * delta);
+        node.alpha = Math.min(1, node.alpha + 0.04 * delta);
+      }
+
+      const currentX = node.parent
+        ? node.parent.x + (node.targetX - node.parent.x) * node.progress
+        : cx + (node.targetX - cx) * node.progress;
+      const currentY = node.parent
+        ? node.parent.y + (node.targetY - node.parent.y) * node.progress
+        : cy + (node.targetY - cy) * node.progress;
+
+      if (node.parent) {
+        ctx.beginPath();
+        ctx.moveTo(node.parent.x, node.parent.y);
+        ctx.lineTo(currentX, currentY);
+        ctx.strokeStyle = nodeColour(node.depth, node.alpha);
+        ctx.lineWidth = node.width;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+
+      node.x = currentX;
+      node.y = currentY;
+
+      if (node.progress > 0.7 && !node.branched && nodes.length < maxNodes && node.depth < maxDepth) {
+        node.branched = true;
+        const numBranches = node.depth < 2 ? 3 : node.depth < 4 ? 2 : Math.random() > 0.4 ? 2 : 1;
+        for (let i = 0; i < numBranches; i++) {
+          const spread = (Math.random() - 0.5) * (node.depth < 3 ? 0.9 : 1.4);
+          const child = createNode(
+            node.x, node.y,
+            node.angle + spread,
+            node.depth + 1,
+            node
+          );
+          if (child) {
+            nodes.push(child);
+            node.children.push(child);
+          }
+        }
+      }
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Init canvas
+  initNetworkCanvas();
+
+  // Hero timeline
+  const heroTl = gsap.timeline({ delay: 0.5 });
+  heroTl
+    .from('.hero-logo', { opacity: 0, y: 30, duration: 1.2, ease: 'power3.out' })
+    .from('.hero-headline', { opacity: 0, y: 40, duration: 1.4, ease: 'power3.out' }, '-=0.8')
+    .from('.hero-subhead', { opacity: 0, y: 20, duration: 1, ease: 'power3.out' }, '-=0.9')
+    .from('.hero-rule', { scaleX: 0, duration: 1, ease: 'power3.inOut', transformOrigin: 'left center' }, '-=0.7')
+    .from('.hero-label', { opacity: 0, duration: 0.8 }, '-=0.4')
+    .from('.hero-scroll', { opacity: 0, y: -10, duration: 0.8 }, '-=0.3');
+
+  // Reveal on scroll
+  gsap.utils.toArray('.reveal-up').forEach(el => {
+    gsap.from(el, {
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+      opacity: 0, y: 50, duration: 0.9, ease: 'power3.out'
+    });
+  });
+
+  gsap.utils.toArray('.reveal-stagger').forEach(container => {
+    gsap.from(container.children, {
+      scrollTrigger: { trigger: container, start: 'top 80%', toggleActions: 'play none none none' },
+      opacity: 0, y: 40, duration: 0.8, ease: 'power3.out', stagger: 0.15
+    });
+  });
+
+  // Stat counters
+  document.querySelectorAll('[data-counter]').forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const decimals = parseInt(el.dataset.decimals || 0);
+    ScrollTrigger.create({
+      trigger: el, start: 'top 80%', once: true,
+      onEnter: () => {
+        gsap.to({ val: 0 }, {
+          val: target, duration: 2, ease: 'power2.out',
+          onUpdate: function() {
+            el.textContent = prefix + this.targets()[0].val.toFixed(decimals) + suffix;
+          }
+        });
+      }
+    });
+  });
+
+  // Science image parallax
+  gsap.to('.science-image', {
+    scrollTrigger: { trigger: '#science', start: 'top bottom', end: 'bottom top', scrub: true },
+    y: -80, ease: 'none'
+  });
+
+  // Product image entrance
+  gsap.from('.product-main', {
+    scrollTrigger: { trigger: '.product-main', start: 'top 75%', toggleActions: 'play none none none' },
+    opacity: 0, scale: 0.92, duration: 1.4, ease: 'power3.out'
+  });
+
+  // Paired shot Ken Burns
+  gsap.to('.paired-shot', {
+    scrollTrigger: { trigger: '.paired-shot-wrap', start: 'top bottom', end: 'bottom top', scrub: true },
+    scale: 1.06, ease: 'none'
+  });
+
+  // Pipeline cards
+  gsap.from('.pipeline-card', {
+    scrollTrigger: { trigger: '.pipeline-grid', start: 'top 75%', toggleActions: 'play none none none' },
+    opacity: 0, y: 60, scale: 0.95, duration: 0.9, ease: 'power3.out', stagger: 0.2
+  });
+
+  // Timeline line draw
+  gsap.from('.timeline-line', {
+    scrollTrigger: { trigger: '.timeline', start: 'top 75%', toggleActions: 'play none none none' },
+    scaleX: 0, transformOrigin: 'left', duration: 1.5, ease: 'power3.inOut'
+  });
+  gsap.from('.timeline-milestone', {
+    scrollTrigger: { trigger: '.timeline', start: 'top 75%', toggleActions: 'play none none none' },
+    opacity: 0, y: 20, duration: 0.6, ease: 'power3.out', stagger: 0.25, delay: 0.5
+  });
+
+  // Close section breathe
+  gsap.to('.close-bg', {
+    scale: 1.06, duration: 12, ease: 'sine.inOut', yoyo: true, repeat: -1
+  });
+  gsap.from('.close-content > *', {
+    scrollTrigger: { trigger: '#close', start: 'top 65%', toggleActions: 'play none none none' },
+    opacity: 0, y: 40, duration: 1.2, ease: 'power3.out', stagger: 0.2
+  });
+
+  // Refresh triggers once images/fonts settle
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+});
+</script>
+</body>
+</html>
