@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mycoria · Brand Reveal · Prepared for Mountain Valley MD</title>
-<meta name="description" content="Mycoria: a world-class DTC plant biostimulant brand built on the Agrarius™ technology platform. Confidential brand reveal prepared by Icarus Digital." />
+<title>Mycoria · Brand Reveal · Prepared for MVMD Inc.</title>
+<meta name="description" content="Mycoria: a premium DTC plant biostimulant brand built on Agrarius™ science. Market mapped, infrastructure built, ready to launch. Confidential brand reveal prepared for MVMD." />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,282 +28,343 @@
 /* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--forest); color: var(--stone); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+body { background: var(--forest); color: var(--stone); font-family: 'Inter', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; display: block; }
 
+/* Backgrounds */
+.bg-forest { background: var(--forest); }
+.bg-moss   { background: var(--deep-moss); }
+.bg-soil   { background: var(--soil); }
+
 /* Sections */
-.section { padding: 120px 0; }
-.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+.section { padding: 130px 0; position: relative; overflow: hidden; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 5vw; position: relative; z-index: 2; }
+.section-narrow { max-width: 900px; }
 .section-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--clay);
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--clay);
   margin-bottom: 1.5rem;
 }
 .section-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 5vw, 72px);
-  font-weight: 300;
-  color: var(--stone);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin-bottom: 3rem;
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300; color: var(--stone); line-height: 1.1; letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
 }
-p { font-size: clamp(14px, 1.5vw, 16px); font-weight: 300; line-height: 1.75; color: var(--stone); opacity: 0.85; margin-bottom: 1.5rem; }
+.section-sublabel {
+  font-family: 'Inter', sans-serif; font-size: clamp(14px, 1.6vw, 16px); font-weight: 400;
+  color: var(--clay); margin-bottom: 3.5rem; line-height: 1.6; max-width: 760px;
+}
+p { font-size: clamp(14px, 1.5vw, 15px); font-weight: 300; line-height: 1.8; color: var(--stone); opacity: 0.85; margin-bottom: 1.25rem; }
+p:last-child { margin-bottom: 0; }
+.lede { font-size: clamp(15px, 1.7vw, 17px); opacity: 0.9; }
 
 /* ===== HERO ===== */
 #hero {
-  position: relative;
-  height: 100vh;
-  min-height: 700px;
-  background: var(--forest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  position: relative; height: 100vh; min-height: 720px;
+  background: var(--forest); display: flex; align-items: center; justify-content: center;
+  overflow: hidden; text-align: center;
 }
-#network-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+#hero .hero-atmos {
+  position: absolute; inset: 0; z-index: 0;
+  background: url('images/atmospheric.jpg') center/cover no-repeat; opacity: 0.35;
 }
-.hero-bg-image {
-  position: absolute;
-  inset: 0;
-  background: url('images/atmospheric.jpg') center/cover no-repeat;
-  opacity: 0.3;
-  z-index: 1;
+#hero .hero-mesh {
+  position: absolute; inset: 0; z-index: 1;
+  background: url('images/mesh-hero.svg') center/cover no-repeat; opacity: 0.15;
+  mix-blend-mode: screen; pointer-events: none;
 }
-.hero-content {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  max-width: 800px;
-  padding: 0 2rem;
-}
-/* GSAP pre-animation states — prevents flash-of-invisible on slow CDN */
-.hero-logo, .hero-headline, .hero-subhead, .hero-rule, .hero-label, .hero-scroll {
-  will-change: transform, opacity;
-}
-.hero-logo {
-  width: 80px;
-  margin: 0 auto 2rem;
-  filter: brightness(0) invert(0.9);
-}
+#network-canvas { position: absolute; inset: 0; z-index: 2; }
+.hero-content { position: relative; z-index: 10; max-width: 880px; padding: 0 2rem; }
+.hero-logo { width: 90px; margin: 0 auto 2.2rem; }
 .hero-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 8vw, 96px);
-  font-weight: 300;
-  color: var(--stone);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  margin: 0 0 1.5rem;
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(46px, 7.5vw, 92px);
+  font-weight: 300; color: var(--stone); line-height: 1.06; letter-spacing: -0.015em; margin-bottom: 1.6rem;
 }
 .hero-subhead {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(14px, 1.5vw, 18px);
-  font-weight: 300;
-  color: var(--stone);
-  opacity: 0.7;
-  letter-spacing: 0.02em;
-  margin: 0 0 2.5rem;
+  font-family: 'Inter', sans-serif; font-size: clamp(14px, 1.6vw, 18px); font-weight: 300;
+  color: var(--stone); opacity: 0.7; letter-spacing: 0.01em; line-height: 1.6; margin-bottom: 2.4rem;
 }
-.hero-rule {
-  width: 120px;
-  height: 1px;
-  background: var(--clay);
-  margin: 0 auto 2rem;
-}
+.hero-rule { width: 120px; height: 1px; background: var(--clay); margin: 0 auto 2rem; }
 .hero-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--clay);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; color: var(--clay);
+  letter-spacing: 0.2em; text-transform: uppercase;
 }
 .hero-scroll {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  opacity: 0.5;
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 10;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
 }
-.hero-scroll span {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--stone);
-  text-transform: uppercase;
+.hero-scroll span { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--stone); text-transform: uppercase; }
+.scroll-arrow { width: 1px; height: 40px; background: var(--stone); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100% { transform: scaleY(1); opacity: 0.5; } 50% { transform: scaleY(0.4); opacity: 0.2; } }
+
+/* ===== Mesh background layer (parallax) ===== */
+.mesh-bg {
+  position: absolute; inset: -8% 0; z-index: 0; pointer-events: none;
+  background: url('images/mesh-hero.svg') center/cover no-repeat; opacity: 0.07;
 }
-.scroll-arrow {
-  width: 1px;
-  height: 40px;
-  background: var(--stone);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%, 100% { transform: scaleY(1); opacity: 0.5; }
-  50% { transform: scaleY(0.4); opacity: 0.2; }
+.texture-bg {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url('images/root-network.jpg') center/cover no-repeat; opacity: 0.06;
 }
 
-/* ===== Two column ===== */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; margin-bottom: 5rem; }
-@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+/* ===== Generic components ===== */
+.fact-bar {
+  background: var(--clay); color: var(--forest); padding: 1.4rem 2rem;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.6rem;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
+  margin: 2.5rem 0;
+}
+.fact-bar span { white-space: nowrap; }
+.fact-bar span + span::before { content: "·"; margin-right: 1.6rem; opacity: 0.5; }
 
-/* White space items */
-.white-space-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
-.ws-line { width: 2px; align-self: stretch; background: var(--clay); flex-shrink: 0; }
-.white-space-item h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: var(--stone); margin-bottom: 0.5rem; }
-.white-space-item p { margin: 0; font-size: 13px; opacity: 0.7; }
+.credential-bar {
+  background: var(--forest); color: var(--clay); padding: 1.5rem 2rem;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.5rem;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-top: 3rem; border-top: 1px solid rgba(185,167,138,0.3); border-bottom: 1px solid rgba(185,167,138,0.3);
+}
+.credential-bar span + span::before { content: "·"; margin-right: 1.5rem; opacity: 0.5; }
 
-/* Stat strip */
-.stat-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 5rem; }
-.stat-card { background: var(--deep-moss); padding: 2.5rem 2rem; text-align: center; }
-.stat-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--clay); line-height: 1; margin-bottom: 0.75rem; }
-.stat-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); opacity: 0.6; }
-@media (max-width: 600px) { .stat-strip { grid-template-columns: 1fr; } }
+.cards { display: grid; gap: 2px; }
+.cards-2 { grid-template-columns: 1fr 1fr; }
+.cards-3 { grid-template-columns: repeat(3, 1fr); }
+.cards-4 { grid-template-columns: repeat(2, 1fr); }
+.card { background: var(--forest); padding: 2.6rem; }
+.bg-moss .card { background: var(--forest); }
+.bg-forest .card { background: var(--deep-moss); }
+.bg-soil .card { background: var(--forest); }
+.card--clay-top { border-top: 3px solid var(--clay); }
+.card--clay-left { border-left: 3px solid var(--clay); }
+.card-tag { display: block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); margin-bottom: 1.1rem; line-height: 1.5; }
+.card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 28px; line-height: 1.2; color: var(--stone); margin-bottom: 1rem; }
+.card h4 { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; color: var(--stone); margin-bottom: 0.6rem; }
+.card p { font-size: 13px; line-height: 1.7; opacity: 0.78; }
+.card-stat { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(48px, 5vw, 64px); color: var(--clay); line-height: 1; margin-bottom: 0.5rem; }
+.card-stat-label { display: block; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); opacity: 0.55; margin-bottom: 1.4rem; }
+
+/* Stat triplet */
+.stat-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 3rem 0; }
+.stat-cell { background: var(--deep-moss); padding: 2.6rem 2rem; text-align: center; }
+.bg-moss .stat-cell { background: var(--soil); }
+.bg-soil .stat-cell { background: var(--forest); }
+.stat-num { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(40px, 5vw, 64px); color: var(--clay); line-height: 1; margin-bottom: 0.7rem; }
+.stat-cap { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone); opacity: 0.6; line-height: 1.5; }
+
+/* Two-column copy */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; }
+.two-col h4 { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); margin-bottom: 1rem; }
+.col-head { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); margin-bottom: 1rem; }
+
+/* Big callout stat */
+.callout {
+  background: var(--soil); padding: 4rem 2rem; text-align: center; margin: 3.5rem 0;
+}
+.callout-num { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(72px, 11vw, 120px); color: var(--clay); line-height: 1; }
+.callout-label { font-family: 'Inter', sans-serif; font-size: clamp(14px, 1.6vw, 16px); color: var(--stone); margin-top: 0.6rem; }
+.callout-sub { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--stone); opacity: 0.6; margin-top: 0.3rem; }
+.callout-copy { max-width: 700px; margin: 1.8rem auto 0; font-size: 14px; line-height: 1.8; opacity: 0.85; }
+
+/* Clay banner block */
+.clay-block { background: var(--clay); color: var(--forest); padding: 2.5rem; text-align: center; margin: 3rem 0; }
+.clay-block .big { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 400; line-height: 1.4; }
+.clay-block p { color: var(--forest); opacity: 0.85; }
+.clay-block .line { margin: 0.4rem 0; font-size: 15px; font-weight: 500; }
+
+/* Tables */
+.data-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: 'Inter', sans-serif; }
+.data-table td { padding: 0.95rem 1.2rem; font-size: 14px; border-bottom: 1px solid rgba(229,226,219,0.1); }
+.data-table td:first-child { color: var(--stone); opacity: 0.85; }
+.data-table td:last-child { text-align: right; color: var(--clay); font-weight: 500; font-variant-numeric: tabular-nums; }
+.table--clay { background: var(--clay); }
+.table--clay td { color: var(--forest); border-bottom: 1px solid rgba(17,32,24,0.12); }
+.table--clay td:first-child { color: var(--forest); opacity: 0.9; }
+.table--clay td:last-child { color: var(--forest); font-weight: 600; }
+
+.milestone-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: 'Inter', sans-serif; background: var(--clay); }
+.milestone-table td { padding: 1.1rem 1.3rem; font-size: 14px; color: var(--forest); border-bottom: 1px solid rgba(17,32,24,0.12); font-variant-numeric: tabular-nums; }
+.milestone-table td:first-child { font-weight: 600; }
+.milestone-table tr:last-child td { border-bottom: none; }
+
+/* Field trial panels */
+.field-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 3rem; }
+.field-panel { background: var(--forest); padding: 2.6rem; border-top: 3px solid var(--clay); }
+.bg-moss .field-panel { background: var(--soil); }
+.field-panel .fp-label { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 1rem; line-height: 1.5; }
+.field-panel .fp-head { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(32px, 4vw, 42px); color: var(--stone); line-height: 1.05; margin-bottom: 1.4rem; }
+.fp-stats { width: 100%; border-collapse: collapse; margin-bottom: 1.4rem; }
+.fp-stats td { padding: 0.6rem 0; font-size: 13px; border-bottom: 1px solid rgba(229,226,219,0.1); }
+.fp-stats td:last-child { text-align: right; color: var(--clay); font-weight: 500; }
+.field-panel p { font-size: 13px; line-height: 1.7; opacity: 0.78; }
 
 /* Science split */
-.section--split { display: grid; grid-template-columns: 45% 1fr; min-height: 80vh; padding: 0; }
-.science-image-wrap { position: relative; overflow: hidden; }
-.science-image { width: 100%; height: 120%; object-fit: cover; }
-.science-image-fade { position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--forest) 100%); }
-.science-content { padding: 120px 5vw 120px 4vw; }
-@media (max-width: 900px) { .section--split { grid-template-columns: 1fr; } .science-image-wrap { height: 60vw; } .science-image { height: 120%; } }
+.sci-split { display: grid; grid-template-columns: 45% 1fr; gap: 4vw; align-items: start; }
+.sci-media-stack { display: grid; gap: 2px; }
+.sci-media { width: 100%; display: block; background: var(--soil); }
+.sci-copy p { font-size: 14px; line-height: 1.85; margin-bottom: 1.3rem; }
+.sci-copy .punch { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--clay); opacity: 1; }
 
-/* Mechanism grid */
-.mechanism-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; margin-top: 3rem; }
-.mechanism-card { background: var(--deep-moss); padding: 2rem; border-top: 2px solid var(--clay); }
-.mechanism-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--stone); margin-bottom: 0.75rem; }
-.mechanism-card p { font-size: 13px; margin: 0; opacity: 0.75; }
-@media (max-width: 600px) { .mechanism-grid { grid-template-columns: 1fr; } }
+/* Brand etymology */
+.etymology { max-width: 600px; margin: 0 auto 1rem; text-align: center; }
+.etymology p { font-size: 15px; line-height: 1.7; }
+.etymology .em { color: var(--clay); }
+.etymology .realm { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--stone); opacity: 1; margin-top: 1.4rem; }
+.brand-name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(56px, 9vw, 96px); color: var(--stone); text-align: center; line-height: 1; margin-bottom: 1.5rem; letter-spacing: -0.01em; }
 
-/* Proof strip */
-.proof-strip { background: var(--soil); display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 0; }
-.proof-item { padding: 3rem 2rem; text-align: center; background: var(--soil); }
-.proof-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 80px); font-weight: 300; color: var(--stone); line-height: 1; margin-bottom: 0.75rem; }
-.proof-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); opacity: 0.55; }
-@media (max-width: 600px) { .proof-strip { grid-template-columns: 1fr; } }
+.tagline-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 3.5rem 0; }
+.tagline-trio div { background: var(--forest); padding: 2.4rem 1.6rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(20px, 2.4vw, 26px); font-weight: 300; color: var(--stone); line-height: 1.3; }
+
+/* Product photography */
+.product-hero { margin: 3.5rem 0; text-align: center; }
+.product-hero img { width: 100%; max-width: 760px; margin: 0 auto; }
+.product-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 2px 0 3.5rem; }
+.product-grid-3 img { width: 100%; height: 100%; object-fit: cover; background: var(--soil); }
+.product-fullbleed { width: 100%; margin: 0 0 3.5rem; }
+.product-fullbleed img { width: 100%; }
+.spec-row { display: grid; grid-template-columns: 300px 1fr; gap: 3vw; align-items: center; }
+.spec-row img { width: 100%; }
+.spec-copy h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--stone); margin: 1.2rem 0 0.4rem; }
+.spec-copy h4:first-child { margin-top: 0; }
+.spec-copy p { font-size: 13px; line-height: 1.7; opacity: 0.78; }
 
 /* Brand architecture */
-.brand-arch { display: flex; align-items: stretch; gap: 1rem; margin-bottom: 5rem; flex-wrap: wrap; }
-.arch-card { flex: 1; min-width: 180px; padding: 2rem; border: 1px solid rgba(229,226,219,0.1); }
-.arch-card--primary { border-color: var(--clay); background: var(--deep-moss); }
-.arch-card--secondary { background: var(--deep-moss); opacity: 0.85; }
-.arch-card--silent { background: var(--soil); opacity: 0.6; }
-.arch-role { display: block; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.75rem; }
-.arch-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; margin-bottom: 0.5rem; }
-.arch-card p { font-size: 12px; margin: 0; opacity: 0.65; }
-.arch-arrow { display: flex; align-items: center; font-size: 20px; color: var(--clay); opacity: 0.6; flex-shrink: 0; }
-@media (max-width: 768px) { .arch-arrow { transform: rotate(90deg); margin: 0 auto; } }
+.arch { max-width: 720px; margin: 3rem auto 2rem; }
+.arch-row { background: var(--forest); border-left: 3px solid var(--clay); padding: 1.5rem 1.8rem; margin-bottom: 0.4rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1rem; }
+.arch-row strong { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 22px; color: var(--stone); min-width: 200px; }
+.arch-row span { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--stone); opacity: 0.75; }
+.arch-arrow { text-align: left; padding-left: 1.8rem; color: var(--clay); opacity: 0.6; font-size: 16px; margin: 0.1rem 0; }
 
-/* Brand identity */
-.brand-identity { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; margin-bottom: 0; }
-.brand-identity-product img { width: 100%; max-width: 420px; }
-.palette { display: flex; gap: 2px; margin-bottom: 2.5rem; }
-.swatch { flex: 1; aspect-ratio: 1; display: flex; align-items: flex-end; padding: 0.5rem; }
-.swatch span { font-family: 'Inter', sans-serif; font-size: 9px; color: var(--stone); opacity: 0.7; line-height: 1.4; }
-.specimen-display { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; margin-bottom: 0.5rem; opacity: 1; }
-.specimen-label { font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; opacity: 0.85; }
-.specimen-body { font-size: 12px; opacity: 0.5; }
-@media (max-width: 768px) { .brand-identity { grid-template-columns: 1fr; } }
+/* Positioning matrix */
+.matrix-wrap { background: var(--soil); padding: 3rem; margin: 3rem 0; }
+.matrix {
+  position: relative; aspect-ratio: 16/10; max-width: 760px; margin: 0 auto;
+  border-left: 1px solid rgba(229,226,219,0.25); border-bottom: 1px solid rgba(229,226,219,0.25);
+}
+.matrix .axis-x, .matrix .axis-y { position: absolute; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); }
+.matrix .axis-x { bottom: -28px; width: 100%; display: flex; justify-content: space-between; }
+.matrix .axis-y { top: 0; left: -10px; transform: rotate(-90deg) translateX(-100%); transform-origin: top left; height: 14px; white-space: nowrap; }
+.matrix .axis-y.top { top: 6px; left: 14px; transform: none; }
+.matrix .axis-y.bot { top: auto; bottom: 6px; left: 14px; transform: none; }
+.m-dot { position: absolute; transform: translate(-50%, 50%); text-align: center; }
+.m-dot i { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--stone); opacity: 0.5; margin: 0 auto 0.4rem; }
+.m-dot small { font-family: 'Inter', sans-serif; font-size: 10px; color: var(--stone); opacity: 0.55; white-space: nowrap; }
+.m-dot.mycoria i { width: 16px; height: 16px; background: var(--clay); opacity: 1; box-shadow: 0 0 0 6px rgba(185,167,138,0.15); }
+.m-dot.mycoria small { color: var(--clay); opacity: 1; font-weight: 600; font-size: 12px; }
 
-/* Paired shot */
-.paired-shot-wrap { position: relative; overflow: hidden; height: 60vw; max-height: 700px; margin-top: 5rem; }
-.paired-shot { width: 100%; height: 100%; object-fit: cover; transform-origin: center; }
-.paired-shot-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, var(--forest) 0%, transparent 20%, transparent 80%, var(--forest) 100%); }
+/* White space table */
+.ws-table { width: 100%; border-collapse: collapse; margin: 2.5rem 0; background: var(--clay); }
+.ws-table td { padding: 1.2rem 1.4rem; font-size: 13px; color: var(--forest); border-bottom: 1px solid rgba(17,32,24,0.14); vertical-align: top; }
+.ws-table td:first-child { font-weight: 600; width: 38%; }
+.ws-table tr:last-child td { border-bottom: none; }
 
-/* Pipeline */
-.machine-intro { max-width: 700px; margin-bottom: 4rem; }
-.pipeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 4rem; }
-.pipeline-card { background: var(--forest); border-top: 2px solid var(--clay); padding: 2.5rem; transition: transform 0.2s ease, background 0.2s ease; }
-.pipeline-card:hover { background: rgba(31,43,34,0.8); transform: translateY(-4px); }
-.pipeline-tag { display: block; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 1.25rem; }
-.pipeline-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; line-height: 1.2; margin-bottom: 1rem; }
-.pipeline-card p { font-size: 13px; line-height: 1.7; margin: 0; opacity: 0.7; }
-.machine-quote { max-width: 700px; margin: 0 auto; font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.5vw, 28px); font-style: italic; font-weight: 300; color: var(--stone); opacity: 0.8; text-align: center; border-left: none; padding: 0; line-height: 1.6; }
-@media (max-width: 768px) { .pipeline-grid { grid-template-columns: 1fr; } }
+/* Palette + type */
+.palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin: 2.5rem 0; }
+.swatch { aspect-ratio: 4/5; display: flex; flex-direction: column; justify-content: flex-end; padding: 1rem; }
+.swatch b { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; }
+.swatch s { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; opacity: 0.8; }
+.type-specimen { background: var(--forest); padding: 3rem; margin: 2.5rem 0; }
+.type-specimen .t-label { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.3rem; }
+.type-specimen .t-serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px, 4vw, 44px); color: var(--stone); margin-bottom: 1.6rem; }
+.type-specimen .t-sans { font-family: 'Inter', sans-serif; font-weight: 300; font-size: clamp(18px, 2.4vw, 24px); color: var(--stone); }
 
-/* Plan */
-.tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 4rem; }
-.tier-card { background: var(--deep-moss); padding: 2.5rem; border-top: 2px solid transparent; transition: border-color 0.3s ease; }
-.tier-card:hover { border-top-color: var(--clay); }
-.tier-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--clay); opacity: 0.4; line-height: 1; margin-bottom: 1rem; }
-.tier-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 1rem; }
-.tier-card p { font-size: 13px; opacity: 0.7; margin-bottom: 1.5rem; }
-.tier-tag { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); }
-@media (max-width: 768px) { .tier-grid { grid-template-columns: 1fr; } }
+/* Mesh showcase */
+.mesh-showcase { position: relative; margin: 3.5rem 0 1rem; overflow: hidden; background: var(--forest); }
+.mesh-showcase img { width: 100%; display: block; opacity: 0.85; }
+.mesh-caption { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); text-align: center; margin-top: 1rem; }
 
-.pricing-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 5rem; }
-.pricing-item { background: var(--soil); padding: 2.5rem; text-align: center; }
-.pricing-number { display: block; font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; color: var(--stone); margin-bottom: 0.75rem; }
-.pricing-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
-@media (max-width: 600px) { .pricing-strip { grid-template-columns: 1fr; } }
+/* Lookbook */
+.lookbook-hero { width: 100%; height: 80vh; min-height: 480px; margin: 3rem 0 2px; }
+.lookbook-hero img { width: 100%; height: 100%; object-fit: cover; }
+.lookbook-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.lookbook-2 img { width: 100%; height: 100%; object-fit: cover; background: var(--soil); }
+.lookbook-full img { width: 100%; }
 
-/* Timeline */
-.timeline { position: relative; padding: 3rem 0 2rem; }
-.timeline-line { position: absolute; top: calc(3rem + 24px); left: 0; right: 0; height: 1px; background: var(--clay); opacity: 0.3; }
-.timeline-milestones { display: flex; justify-content: space-between; position: relative; }
-.timeline-milestone { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; flex: 1; }
-.tm-month { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); }
-.tm-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
-.tm-label { font-family: 'Inter', sans-serif; font-size: 11px; text-align: center; opacity: 0.7; line-height: 1.5; }
-@media (max-width: 600px) { .timeline-milestones { flex-direction: column; gap: 2rem; } .timeline-line { display: none; } }
+/* Cost frame */
+.cost-frame { background: var(--clay); color: var(--forest); padding: 2.8rem; margin: 0 0 2.5rem; }
+.cost-frame h4 { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--forest); margin-bottom: 1.4rem; }
+.cost-table { width: 100%; border-collapse: collapse; }
+.cost-table td { padding: 0.7rem 0; font-size: 13px; color: var(--forest); font-variant-numeric: tabular-nums; }
+.cost-table td:nth-child(2), .cost-table td:nth-child(3) { text-align: right; font-weight: 500; }
+.cost-table .total td { border-top: 2px solid rgba(17,32,24,0.4); font-weight: 700; font-size: 14px; padding-top: 1rem; }
+.cost-frame .note { font-size: 12px; font-style: italic; opacity: 0.7; margin-top: 1rem; }
+.machine-bridge { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.6vw, 28px); font-weight: 300; color: var(--stone); text-align: center; max-width: 760px; margin: 0 auto 3.5rem; line-height: 1.5; }
 
-/* Close */
+/* Phases / timeline */
+.phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin: 3rem 0; position: relative; }
+.phase-card { background: var(--forest); padding: 2.4rem 1.8rem; border-top: 3px solid var(--clay); }
+.phase-card .ph-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 24px; color: var(--stone); margin-bottom: 0.4rem; }
+.phase-card .ph-target { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: var(--clay); margin-bottom: 1.2rem; display: block; line-height: 1.5; }
+.phase-card ul { list-style: none; }
+.phase-card li { font-family: 'Inter', sans-serif; font-size: 12.5px; line-height: 1.6; color: var(--stone); opacity: 0.8; padding-left: 1rem; position: relative; margin-bottom: 0.6rem; }
+.phase-card li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 4px; height: 4px; border-radius: 50%; background: var(--clay); }
+
+.channel-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 3rem 0; }
+.channel-strip div { background: var(--clay); color: var(--forest); padding: 2rem 1.6rem; text-align: center; }
+.channel-strip .ch-month { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+.channel-strip .ch-mix { font-family: 'Cormorant Garamond', serif; font-size: 17px; line-height: 1.5; }
+
+.geo-block { background: var(--forest); padding: 3rem; margin-top: 2rem; }
+.geo-block h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 28px; color: var(--clay); margin-bottom: 1.6rem; }
+.geo-row { display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; padding: 1.1rem 0; border-bottom: 1px solid rgba(229,226,219,0.1); }
+.geo-row:last-child { border-bottom: none; }
+.geo-row .g-when { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--clay); }
+.geo-row p { font-size: 13px; line-height: 1.7; margin: 0; }
+
+/* Scenarios */
+.scenarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin: 2.5rem 0; }
+.scenario { background: var(--forest); padding: 2.2rem; border-top: 3px solid var(--clay); }
+.scenario .sc-name { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.6rem; }
+.scenario .sc-num { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 44px; color: var(--stone); line-height: 1; margin-bottom: 1rem; }
+.scenario p { font-size: 12.5px; line-height: 1.6; opacity: 0.75; }
+
+/* ===== CLOSE ===== */
 #close {
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: var(--forest);
+  position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: var(--forest); padding: 8rem 0; text-align: center;
 }
-.close-bg {
-  position: absolute;
-  inset: -5%;
-  background: url('images/atmospheric.jpg') center/cover no-repeat;
-  opacity: 0.3;
+.close-bg { position: absolute; inset: -5%; z-index: 0; background: url('images/atmospheric-dark.png') center/cover no-repeat; opacity: 0.3; }
+.close-mesh { position: absolute; inset: 0; z-index: 1; background: url('images/mesh-hero.svg') center/cover no-repeat; opacity: 0.08; mix-blend-mode: screen; pointer-events: none; }
+.close-content { position: relative; z-index: 5; max-width: 820px; padding: 0 5vw; }
+.close-logo { width: 70px; margin: 0 auto 2.4rem; }
+.close-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(34px, 5.5vw, 72px); color: var(--stone); line-height: 1.12; margin-bottom: 0; }
+.close-rule { width: 80px; height: 1px; background: var(--clay); margin: 2.6rem auto; }
+.partnership { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; text-align: left; margin: 0 auto 2.5rem; max-width: 760px; }
+.partnership h4 { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); margin-bottom: 1.2rem; }
+.partnership ul { list-style: none; }
+.partnership li { font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.6; color: var(--stone); opacity: 0.82; padding-left: 1.1rem; position: relative; margin-bottom: 0.7rem; }
+.partnership li::before { content: "·"; position: absolute; left: 0; color: var(--clay); font-weight: 700; }
+.close-statement { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(19px, 2.4vw, 24px); color: var(--stone); opacity: 0.85; max-width: 600px; margin: 0 auto 2.6rem; line-height: 1.5; }
+.close-footer { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clay); opacity: 0.7; line-height: 2; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .sci-split { grid-template-columns: 1fr; }
+  .field-panels { grid-template-columns: 1fr; }
+  .matrix { aspect-ratio: 1/1; }
 }
-.close-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 680px;
-  padding: 0 5vw;
+@media (max-width: 768px) {
+  .section { padding: 90px 0; }
+  .cards-2, .cards-3, .cards-4, .stat-3, .tagline-trio, .product-grid-3,
+  .two-col, .phases, .channel-strip, .scenarios, .partnership,
+  .spec-row, .lookbook-2, .geo-row { grid-template-columns: 1fr; }
+  .palette { grid-template-columns: repeat(5, 1fr); }
+  .fact-bar span + span::before { content: ""; margin: 0; }
+  .cost-table td { font-size: 12px; }
 }
-.close-logo { width: 64px; margin: 0 auto 2.5rem; filter: brightness(0) invert(0.9); }
-.close-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 72px); font-weight: 300; color: var(--stone); line-height: 1.1; margin-bottom: 2.5rem; }
-.close-rule { width: 80px; height: 1px; background: var(--clay); margin: 2rem auto; }
-.close-body { font-size: 15px; opacity: 0.75; line-height: 1.8; }
-.close-domain { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--stone); margin-bottom: 1rem; letter-spacing: 0.02em; }
-.close-credit { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay); opacity: 0.7; }
 </style>
 </head>
 <body>
 
 <!-- ===== SECTION 00 — HERO ===== -->
 <section id="hero">
+  <div class="hero-atmos"></div>
+  <div class="hero-mesh"></div>
   <canvas id="network-canvas"></canvas>
-  <div class="hero-bg-image"></div>
   <div class="hero-content">
-    <img class="hero-logo" src="images/logo.png" alt="Mycoria" onerror="this.style.display='none'" />
-    <h1 class="hero-headline">Soil Biology.<br>Stronger Plants.</h1>
-    <p class="hero-subhead">A world-class DTC brand built on the Agrarius™ technology platform.</p>
+    <img class="hero-logo" src="images/logo-light.svg" alt="Mycoria" onerror="this.style.display='none'" />
+    <h1 class="hero-headline">The Biology Was Always There.<br>Now It Has a Brand.</h1>
+    <p class="hero-subhead">A premium DTC brand built on Agrarius™ science.<br>Market mapped. Infrastructure built. Ready to launch.</p>
     <div class="hero-rule"></div>
-    <p class="hero-label">CONFIDENTIAL · JUNE 2026 · PREPARED BY ICARUS DIGITAL</p>
+    <p class="hero-label">CONFIDENTIAL · PREPARED FOR MVMD INC.</p>
   </div>
   <div class="hero-scroll">
     <span>scroll</span>
@@ -311,301 +372,584 @@ p { font-size: clamp(14px, 1.5vw, 16px); font-weight: 300; line-height: 1.75; co
   </div>
 </section>
 
-<!-- ===== SECTION 01 — THE OPPORTUNITY ===== -->
-<section id="opportunity" class="section" style="background:var(--deep-moss);">
+<!-- ===== SECTION 01 — BRAND REVEAL ===== -->
+<section id="brand" class="section bg-moss">
   <div class="section-inner">
-    <p class="section-label reveal-up">01 · THE OPPORTUNITY</p>
-    <h2 class="section-headline reveal-up">The Premium Lane Is Empty.</h2>
+    <p class="section-label reveal-up" style="text-align:center;">THE BRAND</p>
+    <h2 class="brand-name reveal-up">Mycoria</h2>
 
-    <div class="two-col">
-      <div class="col-left reveal-up">
-        <p>The consumer plant biostimulant category in 2026 is dominated by commodity bulk products: granular bags from garden centres, generic Amazon listings, agronomy wholesale with zero brand investment. No brand exists that combines premium science-backed positioning, DTC ecommerce infrastructure, single-serve convenience, and visual identity comparable to Seed Health or AG1.</p>
-        <p>The foliar-spray single-serve sachet format Mycoria is introducing does not exist in the market. The white space is not contested. It is unclaimed.</p>
-      </div>
+    <div class="etymology reveal-up">
+      <p><span class="em">myco</span>– from mycorrhiza, the fungal network that connects plant root systems and propagates biological signals through the soil</p>
+      <p style="margin-top:1rem;"><span class="em">–oria</span> Latin for realm, domain, destination</p>
+      <p class="realm">The realm of the underground network.</p>
+    </div>
+  </div>
 
-      <div class="col-right reveal-stagger">
-        <div class="white-space-item">
-          <div class="ws-line"></div>
-          <div>
-            <h4>No premium sachet format exists</h4>
-            <p>Every incumbent sells bottles, bags, or bulk kits. Nobody runs single-serve sachets.</p>
-          </div>
-        </div>
-        <div class="white-space-item">
-          <div class="ws-line"></div>
-          <div>
-            <h4>No science-forward DTC brand</h4>
-            <p>Biostimulant science is academic. Nobody has packaged it for the home grower.</p>
-          </div>
-        </div>
-        <div class="white-space-item">
-          <div class="ws-line"></div>
-          <div>
-            <h4>No subscribe-and-save model</h4>
-            <p>Nobody has built a subscription-first proposition in this category.</p>
-          </div>
-        </div>
-        <div class="white-space-item">
-          <div class="ws-line"></div>
-          <div>
-            <h4>No positioning against bottle fatigue</h4>
-            <p>Every serious grower complaint thread is asking for exactly this.</p>
-          </div>
-        </div>
+  <div class="fact-bar reveal-up">
+    <span>Domain: growmycoria.com</span>
+    <span>Format: Single-serve sachet</span>
+    <span>EU Certified: PFC 3 Soil Improver</span>
+    <span>Active ingredient: Agrarius™</span>
+    <span>Application: Foliar spray</span>
+  </div>
+
+  <div class="section-inner">
+    <div class="tagline-trio reveal-stagger">
+      <div>"Soil Biology. Stronger Plants."</div>
+      <div>"Stronger Roots. Better Grows."</div>
+      <div>"One product. The rest is biology."</div>
+    </div>
+
+    <!-- Product photography -->
+    <div class="product-hero reveal-up">
+      <img class="product-main" src="images/sachet-hero.png" alt="Mycoria sachet, hero shot" loading="lazy" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="product-grid-3 reveal-stagger">
+      <img src="images/sachet-display-1.png" alt="Mycoria sachet display 1" loading="lazy" onerror="this.style.display='none'" />
+      <img src="images/sachet-display-2.png" alt="Mycoria sachet display 2" loading="lazy" onerror="this.style.display='none'" />
+      <img src="images/sachet-display-3.png" alt="Mycoria sachet display 3" loading="lazy" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="product-fullbleed reveal-up">
+      <img src="images/paired-setup.png" alt="Mycoria sachet and spray bottle product family" loading="lazy" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="spec-row reveal-up">
+      <img src="images/spray-bottle.png" alt="Mycoria refillable spray bottle" loading="lazy" onerror="this.style.display='none'" />
+      <div class="spec-copy">
+        <h4>Single-Serve Sachet</h4>
+        <p>Matte Forest green exterior. Root network illustration, Clay line-art. Clay footer band: "Powered by Agrarius™ · EU PFC 3 Certified". Foliar spray application.</p>
+        <h4>Premium Refillable Spray Bottle</h4>
+        <p>16 fl oz trigger spray. Same visual system. Refillable, designed for subscribe-and-save.</p>
       </div>
     </div>
 
-    <div class="stat-strip reveal-stagger">
-      <div class="stat-card">
-        <span class="stat-number" data-counter data-target="2.04" data-prefix="$" data-suffix="B" data-decimals="2">$0B</span>
-        <span class="stat-label">Total Addressable Market</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number" data-counter data-target="718" data-prefix="$" data-suffix="M">$0M</span>
-        <span class="stat-label">Serviceable Addressable Market</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number" data-counter data-target="7" data-prefix="$" data-suffix="M">$0M</span>
-        <span class="stat-label">18-Month Revenue Target</span>
-      </div>
+    <!-- Brand architecture -->
+    <div class="arch reveal-up">
+      <div class="arch-row"><strong>Mycoria</strong><span>Consumer face. All DTC surfaces. growmycoria.com</span></div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-row"><strong>Powered by Agrarius™</strong><span>Ingredient brand. On-pack badge. Science credibility.</span></div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-row"><strong>MVMD Inc.</strong><span>Silent parent. Never on consumer surfaces. Same model as Eons / Quicksome™.</span></div>
     </div>
+
+    <p class="reveal-up" style="max-width:760px;">This architecture is already proven within MVMD's own portfolio. Eons operates the identical model with Quicksome™ as the ingredient brand. Mycoria applies the same structure to plant biology. MVMD's equity is protected. Agrarius™ gains independent ingredient equity. Mycoria builds the consumer relationship.</p>
   </div>
 </section>
 
 <!-- ===== SECTION 02 — THE SCIENCE ===== -->
-<section id="science" class="section section--split" style="background:var(--forest);">
-  <div class="science-image-wrap">
-    <img class="science-image" src="images/root-network.jpg"
-      alt="Root system cross-section" loading="lazy" onerror="this.style.display='none'" />
-    <div class="science-image-fade"></div>
-  </div>
-
-  <div class="science-content">
-    <p class="section-label reveal-up">02 · THE SCIENCE</p>
-    <h2 class="section-headline reveal-up">Not a fertiliser.<br>A precision delivery system.</h2>
-    <p class="reveal-up">Agrarius™ works at 1 gram per hectare, not because it is a powerful chemical, but because it is not a chemical input at all. The active signalling molecule is encapsulated in a proprietary nano-encapsulation carbohydrate coating. It dissolves only on contact with plant physiology. Nothing is lost before it reaches the plant.</p>
-    <p class="reveal-up">Once inside, the molecule travels bidirectionally through both the xylem and the phloem, reaching every part of the plant from a single foliar spray. The plant does not receive a nutrient. It receives a signal. The biology does the rest.</p>
-
-    <div class="mechanism-grid reveal-stagger">
-      <div class="mechanism-card">
-        <h4>80–90%</h4>
-        <p>Nutrient uptake efficiency, versus the typical 10 to 15%.</p>
-      </div>
-      <div class="mechanism-card">
-        <h4>Bidirectional</h4>
-        <p>Dual xylem and phloem transport. One spray reaches the entire plant.</p>
-      </div>
-      <div class="mechanism-card">
-        <h4>Nano-Encapsulation</h4>
-        <p>Carbohydrate coating protects the molecule until plant contact. Zero tank degradation.</p>
-      </div>
-      <div class="mechanism-card">
-        <h4>ISR Activation</h4>
-        <p>Plants activate their own biological defence pathways. 47% reduction in pest damage in field trials.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="proof-strip">
-  <div class="proof-item">
-    <span class="proof-number" data-counter data-target="250" data-suffix="+">0</span>
-    <span class="proof-label">Independent field trials</span>
-  </div>
-  <div class="proof-item">
-    <span class="proof-number" data-counter data-target="89" data-suffix="%">0%</span>
-    <span class="proof-label">Success rate across all trials</span>
-  </div>
-  <div class="proof-item">
-    <span class="proof-number" data-counter data-target="75" data-suffix="%+">0%</span>
-    <span class="proof-label">Yield increase · India cotton trials</span>
-  </div>
-</div>
-
-<!-- ===== SECTION 03 — THE BRAND ===== -->
-<section id="brand" class="section" style="background:var(--forest);">
+<section id="science" class="section bg-moss">
+  <div class="mesh-bg mesh-parallax"></div>
   <div class="section-inner">
-    <p class="section-label reveal-up">03 · THE BRAND</p>
-    <h2 class="section-headline reveal-up">One product.<br>The rest is biology.</h2>
+    <p class="section-label reveal-up">THE SCIENCE</p>
+    <h2 class="section-headline reveal-up">What Agrarius™ Actually Does</h2>
+    <p class="section-sublabel reveal-up">250+ third-party field trials. 89% success rate. The mechanism is real.</p>
 
-    <p class="brand-intro reveal-up">Mycoria is not a garden brand. Not a cannabis brand. Not a wellness brand. It is the first consumer brand built on the language of plant intelligence: the mycelial network, the invisible biological architecture that connects and signals through every healthy soil system. Premium, precise, grounded in real science. No mascots, no woo, no bottle fatigue.</p>
+    <div class="sci-split">
+      <div class="sci-media-stack reveal-up">
+        <video class="sci-media" autoplay muted loop playsinline poster="images/root-radial.png">
+          <source src="images/transport-diagram.mp4" type="video/mp4" />
+        </video>
+        <img class="sci-media" src="images/root-radial.png" alt="Root cross-section, radial network" loading="lazy" onerror="this.style.display='none'" />
+        <img class="sci-media" src="images/root-scientific.png" alt="Root cross-section, scientific view" loading="lazy" onerror="this.style.display='none'" />
+      </div>
 
-    <!-- Brand Architecture -->
-    <div class="brand-arch reveal-stagger">
-      <div class="arch-card arch-card--primary">
-        <span class="arch-role">Consumer Face</span>
-        <h3>Mycoria</h3>
-        <p>What growers buy and trust</p>
-      </div>
-      <div class="arch-arrow">→</div>
-      <div class="arch-card arch-card--secondary">
-        <span class="arch-role">Ingredient Brand</span>
-        <h3>Agrarius™</h3>
-        <p>The proof engine. Credited on-pack as "Powered by Agrarius™"</p>
-      </div>
-      <div class="arch-arrow">→</div>
-      <div class="arch-card arch-card--silent">
-        <span class="arch-role">Parent · Silent</span>
-        <h3>MVMD</h3>
-        <p>Technology origin. Never named on any consumer surface.</p>
-      </div>
-    </div>
-
-    <!-- Product + Identity -->
-    <div class="brand-identity">
-      <div class="brand-identity-product">
-        <img class="product-main" src="images/sachet-hero.jpg"
-          alt="Mycoria sachet" loading="lazy" onerror="this.style.display='none'" />
-      </div>
-      <div class="brand-identity-meta">
-        <div class="palette reveal-stagger">
-          <div class="swatch" style="background:#112018"><span>#112018<br>Forest</span></div>
-          <div class="swatch" style="background:#1F2B22"><span>#1F2B22<br>Deep Moss</span></div>
-          <div class="swatch" style="background:#2E2A26"><span>#2E2A26<br>Soil</span></div>
-          <div class="swatch" style="background:#B9A78A"><span>#B9A78A<br>Clay</span></div>
-          <div class="swatch" style="background:#E5E2DB; color:#112018"><span style="color:#112018">#E5E2DB<br>Stone</span></div>
-        </div>
-        <div class="type-specimen reveal-up">
-          <p class="specimen-display">Mycoria</p>
-          <p class="specimen-label">PLANT BIOSTIMULANT</p>
-          <p class="specimen-body">Cormorant Garamond · Inter</p>
-        </div>
+      <div class="sci-copy reveal-up">
+        <p>Agrarius™ is a humalite-derived biostimulant, humalite being the unhumified geological precursor to humic acid, suspended in water. It does not replace fertiliser. It does not feed the plant directly. It changes the information environment the plant operates in.</p>
+        <p>When applied as a foliar spray, Agrarius™ enters through leaf stomata and is transported through both xylem (upward, water-mineral flow) and phloem (downward, sugar-metabolite flow) simultaneously, a dual vascular pathway confirmed in the March 2026 MVMD technical review. This bidirectional transport means the signal reaches the root zone within hours, not days.</p>
+        <p>At the root zone, the compound propagates through existing mycorrhizal networks. The plant receives a stress-priming signal. It upregulates heat shock proteins and antioxidant enzymes. It enters a state of heightened biological readiness.</p>
+        <p class="punch">The plant does not work harder. It works smarter.</p>
       </div>
     </div>
   </div>
 
-  <!-- Full-width paired shot -->
-  <div class="paired-shot-wrap">
-    <img class="paired-shot" src="images/paired.jpg"
-      alt="Mycoria product range" loading="lazy" onerror="this.style.display='none'" />
-    <div class="paired-shot-overlay"></div>
+  <div class="section-inner" style="margin-top:1rem;">
+    <div class="callout reveal-up">
+      <div class="callout-num">80-90%</div>
+      <div class="callout-label">fertiliser utilisation with Agrarius™</div>
+      <div class="callout-sub">vs. the conventional 10-15%</div>
+      <p class="callout-copy">This is not a marginal improvement. For a grower spending $800/year on nutrients, Agrarius™ means the same yield from a fraction of the input cost. That is the conversation that sells subscriptions.</p>
+    </div>
+
+    <div class="field-panels">
+      <div class="field-panel reveal-up">
+        <div class="fp-label">THIRD-PARTY FIELD TRIAL · MARATHWADA, INDIA · COTTON</div>
+        <div class="fp-head"><span data-counter data-target="75" data-suffix="%+">75%+</span> yield increase</div>
+        <table class="fp-stats">
+          <tr><td>Yield increase</td><td>75%+</td></tr>
+          <tr><td>Pod weight</td><td>47% heavier</td></tr>
+          <tr><td>Staple fibre</td><td>3.5% longer</td></tr>
+        </table>
+        <p>Independent field trials across cotton operations in Marathwada, Maharashtra produced yield increases exceeding 75% over untreated controls. Pod weight increased 47%. Staple fibre measured 3.5% longer, a quality metric that determines commodity price. One participating farmer eliminated his second scheduled fertiliser application entirely.</p>
+      </div>
+      <div class="field-panel reveal-up">
+        <div class="fp-label">THIRD-PARTY FIELD TRIAL · URUGUAY · LICENSED CANNABIS CULTIVATION</div>
+        <div class="fp-head">1-2 weeks early</div>
+        <table class="fp-stats">
+          <tr><td>Harvest timing</td><td>1-2 weeks ahead</td></tr>
+          <tr><td>Residue testing</td><td>Zero residue confirmed</td></tr>
+          <tr><td>Compliance</td><td>Clean certification</td></tr>
+        </table>
+        <p>Licensed cannabis cultivators in Uruguay achieved bud maturity 1-2 weeks ahead of untreated control plots. For a commercial operation, two weeks is one additional harvest cycle per year. Independent laboratory residue testing confirmed zero detectable Agrarius™ in the final product. Compliance integrity is not a caveat. It is a selling point.</p>
+      </div>
+    </div>
+
+    <div class="credential-bar reveal-up">
+      <span>250+ third-party field trials</span>
+      <span>89% success rate</span>
+      <span>EU PFC 3 Soil Improver (2028-DE.1481)</span>
+      <span>OMRI organic listing in progress</span>
+    </div>
   </div>
 </section>
 
-<!-- ===== SECTION 04 — THE MACHINE ===== -->
-<section id="machine" class="section" style="background:var(--deep-moss);">
+<!-- ===== SECTION 03 — THE MARKET ===== -->
+<section id="market" class="section bg-soil">
+  <div class="texture-bg"></div>
   <div class="section-inner">
-    <p class="section-label reveal-up">04 · THE MACHINE</p>
-    <h2 class="section-headline reveal-up">This is not an agency engagement.</h2>
-    <p class="machine-intro reveal-up">Mycoria will be built and grown entirely through Icarus's proprietary agentic pipeline system. What would cost a traditional brand $300K to $500K in agency fees and marketing infrastructure is replaced by four interconnected AI-driven systems, live from day one.</p>
+    <p class="section-label reveal-up">THE MARKET</p>
+    <h2 class="section-headline reveal-up">A $718M Serviceable Market.<br>No Premium Brand In It.</h2>
+    <p class="section-sublabel reveal-up">The $7M 18-month target is 1% of that number. This is what conservative looks like.</p>
 
-    <div class="pipeline-grid">
-      <div class="pipeline-card">
-        <span class="pipeline-tag">AGENTIC SEO PIPELINE</span>
-        <h3>Organic growth<br>on autopilot.</h3>
-        <p>Automated content generation, keyword clustering, topical authority mapping, and technical SEO deployment. Grows organic search presence across every grower segment simultaneously, without manual content production.</p>
+    <div class="stat-3 reveal-stagger">
+      <div class="stat-cell"><span class="stat-num" data-counter data-target="2.04" data-prefix="$" data-suffix="B" data-decimals="2">$2.04B</span><span class="stat-cap">Total Addressable Market (three tiers)</span></div>
+      <div class="stat-cell"><span class="stat-num" data-counter data-target="718" data-prefix="$" data-suffix="M">$718M</span><span class="stat-cap">Serviceable Addressable Market</span></div>
+      <div class="stat-cell"><span class="stat-num" data-counter data-target="7" data-prefix="$" data-suffix="M">$7M</span><span class="stat-cap">18-month target, 0.97% of SAM</span></div>
+    </div>
+
+    <div class="cards cards-3 reveal-stagger">
+      <div class="card card--clay-top">
+        <span class="card-stat" data-counter data-target="1.24" data-prefix="$" data-suffix="B" data-decimals="2">$1.24B</span>
+        <span class="card-stat-label">TAM · $496M SAM</span>
+        <h4>Cannabis Home Growers</h4>
+        <p>~3 million active US home growers across 27 legal jurisdictions. Average 7 sachets/year, one per major growth phase transition. Highest WTP in the category. Online-native purchasing behaviour. Underserved by every existing premium brand.</p>
+        <p style="margin-top:1rem;color:var(--clay);opacity:0.9;">TAM build: 3,000,000 × 7 sachets × $59 avg = $1.24B<br>SAM (40% reach): $496M</p>
       </div>
-      <div class="pipeline-card">
-        <span class="pipeline-tag">AGENTIC EMAIL RETENTION</span>
-        <h3>Retention that<br>thinks for itself.</h3>
-        <p>Lifecycle automation built on customer state, not time-based sequences. Welcome, post-purchase education, reactivation, and subscription defence, generated, tested, and deployed agentically.</p>
+      <div class="card card--clay-top">
+        <span class="card-stat" data-counter data-target="354" data-prefix="$" data-suffix="M">$354M</span>
+        <span class="card-stat-label">TAM · $89M SAM</span>
+        <h4>Citrus Belt Households</h4>
+        <p>~4 million residential citrus households across California, Florida, Texas, and Arizona. HLB greening pressure has created a grower population acutely aware of tree health and actively purchasing premium inputs. Florida commercial citrus acreage fell 63% since 2004, backyard impact mirrors commercial losses.</p>
+        <p style="margin-top:1rem;color:var(--clay);opacity:0.9;">TAM build: 4,000,000 × 1.5 sachets × $59 = $354M<br>SAM (25% reach): $89M</p>
       </div>
-      <div class="pipeline-card">
-        <span class="pipeline-tag">AGENTIC CREATIVE PIPELINE</span>
-        <h3>World-class creative<br>at machine scale.</h3>
-        <p>AI-native visual production: product photography, brand world imagery, social ad creative, and UGC-style content, generated at scale using the locked Mycoria brand spec. No photoshoots. No creative agency retainers.</p>
-      </div>
-      <div class="pipeline-card">
-        <span class="pipeline-tag">AGENTIC WEB DEV &amp; DESIGN</span>
-        <h3>Sovereign stack.<br>Full ownership.</h3>
-        <p>Next.js plus Medusa storefront. Icarus owns the stack, the data, and the conversion funnel. Design-to-deployment pipeline runs agentically. No Shopify lock-in, no platform dependency.</p>
+      <div class="card card--clay-top">
+        <span class="card-stat" data-counter data-target="443" data-prefix="$" data-suffix="M">$443M</span>
+        <span class="card-stat-label">TAM · $133M SAM</span>
+        <h4>Homestead &amp; Regenerative Growers</h4>
+        <p>~5 million US households engaged in serious food production, raised beds, orchard trees, annual vegetable rows, identifying as organic or regenerative. Mission-aligned with the Mycoria positioning. Strong conversion to premium inputs when a credible science narrative is present.</p>
+        <p style="margin-top:1rem;color:var(--clay);opacity:0.9;">TAM build: 5,000,000 × 1.5 sachets × $59 = $443M<br>SAM (30% reach): $133M</p>
       </div>
     </div>
 
-    <blockquote class="machine-quote reveal-up">
-      "Normally, this build would cost hundreds of thousands of dollars and take 18 months with a full marketing department. We're doing it with four systems and one operator."
-    </blockquote>
+    <div class="clay-block reveal-up">
+      <p class="line">$496M + $89M + $133M = $718M Serviceable Addressable Market</p>
+      <p class="line">$7M at 18 months = 0.97% of SAM</p>
+      <p class="line">Conservative floor: $3.6M · Base case: $7M · Stretch: $14.4M</p>
+    </div>
+
+    <div class="two-col reveal-up" style="margin-top:1rem;">
+      <div>
+        <h4>The Regulatory Moment</h4>
+        <p>The EU Fertilising Products Regulation that created the PFC 3 Soil Improver classification came into effect in 2022. Agrarius™ holds this certification (2028-DE.1481). It is a credentialled category entrant at the exact moment the category is being formalised. OMRI organic listing in progress, when complete it opens the entire certified-organic consumer segment.</p>
+      </div>
+      <div>
+        <h4>The Consumer Shift</h4>
+        <p>The global humic-based biostimulants market was valued at $591M in 2024, projected $1.42B by 2035 at 8.32% CAGR. North America holds the largest regional share. The growth driver is not institutional farming. It is the 80 million US adults who now garden or grow food at home, applying the same premium-input logic to plants that their generation already applied to supplements, coffee, and protein powder.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== SECTION 05 — THE PLAN ===== -->
-<section id="plan" class="section" style="background:var(--forest);">
+<!-- ===== SECTION 04 — THE COMPETITION ===== -->
+<section id="competition" class="section bg-forest">
   <div class="section-inner">
-    <p class="section-label reveal-up">05 · THE PLAN</p>
-    <h2 class="section-headline reveal-up">Three segments.<br>One product. $7M Year One.</h2>
+    <p class="section-label reveal-up">THE COMPETITION</p>
+    <h2 class="section-headline reveal-up">The Premium DTC Plant Biostimulant<br>Category Does Not Exist Yet.</h2>
+    <p class="section-sublabel reveal-up">This is not a crowded market. It is an unclaimed one.</p>
 
-    <div class="tier-grid reveal-stagger">
-      <div class="tier-card">
-        <span class="tier-number">01</span>
-        <h3>Home Cannabis Growers</h3>
-        <p>~3M active US home growers in legal states. High WTP, 6 to 8 sachets per year, online-native acquisition. TAM: ~$1.24B.</p>
-        <span class="tier-tag">PRIMARY ACQUISITION CHANNEL</span>
-      </div>
-      <div class="tier-card">
-        <span class="tier-number">02</span>
-        <h3>Backyard Citrus &amp; Fruit Trees</h3>
-        <p>3 to 5M households across FL, CA, TX, AZ. HLB has devastated backyard citrus, and growers are actively seeking solutions. TAM: ~$450M.</p>
-        <span class="tier-tag">HIGHEST EMOTIONAL RESONANCE</span>
-      </div>
-      <div class="tier-card">
-        <span class="tier-number">03</span>
-        <h3>Homestead &amp; Regenerative Growers</h3>
-        <p>~5M mission-aligned US growers seeking to reduce inputs naturally. Highest lifetime brand loyalty. Content-driven acquisition. TAM: ~$400M.</p>
-        <span class="tier-tag">HIGHEST LTV SEGMENT</span>
+    <div class="matrix-wrap reveal-up">
+      <div class="matrix" id="posMatrix">
+        <span class="axis-y top">DTC Direct</span>
+        <span class="axis-y bot">Wholesale / Retail</span>
+        <span class="axis-x"><em style="font-style:normal;">Utilitarian Brand</em><em style="font-style:normal;">Premium Brand</em></span>
+        <div class="m-dot comp" style="left:12%; bottom:18%;"><i></i><small>RAW Humic Acid</small></div>
+        <div class="m-dot comp" style="left:20%; bottom:42%;"><i></i><small>Down to Earth</small></div>
+        <div class="m-dot comp" style="left:46%; bottom:58%;"><i></i><small>Simple Lawn Solutions</small></div>
+        <div class="m-dot comp" style="left:14%; bottom:8%;"><i></i><small>BioAg TM-7</small></div>
+        <div class="m-dot mycoria" style="left:84%; bottom:86%;"><i></i><small>Mycoria</small></div>
       </div>
     </div>
 
-    <div class="pricing-strip reveal-stagger">
-      <div class="pricing-item">
-        <span class="pricing-number">$25</span>
-        <span class="pricing-label">Single sachet MSRP</span>
+    <div class="cards cards-2 reveal-stagger" style="margin-top:3rem;">
+      <div class="card card--clay-left">
+        <span class="card-tag">Closest product analog</span>
+        <h4>RAW Humic Acid (NPK Industries)</h4>
+        <p>59% humic concentrate in utilitarian bulk packaging. Available on Amazon and through hydroponic distributors. No DTC. No subscription. No science narrative. No single-serve format. An ingredient for professionals, not a product for consumers. Mycoria is not competing with RAW. They are in different businesses.</p>
+        <p style="margin-top:0.8rem;color:var(--clay);opacity:0.9;">Weakness: Zero brand equity. The grower who wants to understand what they're applying has nowhere to go.</p>
       </div>
-      <div class="pricing-item">
-        <span class="pricing-number">$69</span>
-        <span class="pricing-label">4-pack subscribe &amp; save</span>
+      <div class="card card--clay-left">
+        <span class="card-tag">Granular, utilitarian, retail-only</span>
+        <h4>Down to Earth</h4>
+        <p>Well-respected organic granular amendment with broad retail distribution. Granular application, slow-release soil, not foliar. No DTC. No subscription. No science story. Category: soil amendment. Position: trusted but unsexy.</p>
+        <p style="margin-top:0.8rem;color:var(--clay);opacity:0.9;">Weakness: Format lock-in. No digital brand equity. Retail takes 40-50% margin.</p>
       </div>
-      <div class="pricing-item">
-        <span class="pricing-number">$130–200</span>
-        <span class="pricing-label">Annual revenue per active customer</span>
+      <div class="card card--clay-left">
+        <span class="card-tag">8% concentration, lawn-only, Amazon-first</span>
+        <h4>Simple Lawn Solutions Root Hume</h4>
+        <p>DTC presence on Amazon and own site. 8% humic concentration, significantly diluted. Lawn turf focus only, no cultivation market, no premium growers. No science narrative. No single-serve format.</p>
+        <p style="margin-top:0.8rem;color:var(--clay);opacity:0.9;">Weakness: Concentration not competitive. Lawn-only excludes the highest-value customer tiers entirely.</p>
+      </div>
+      <div class="card card--clay-left">
+        <span class="card-tag">Wholesale, no consumer brand</span>
+        <h4>BioAg TM-7</h4>
+        <p>Industry-grade benchmark for professional humic application. No consumer brand, no DTC, no retail presence. A B2B ingredient, not a consumer product. The grower who wants what TM-7 does but in a format they can buy, understand, and subscribe to: they have nowhere to go. Until Mycoria.</p>
+        <p style="margin-top:0.8rem;color:var(--clay);opacity:0.9;">Weakness: Entirely institutional. Not purchasable by a home grower at any accessible price point or format.</p>
       </div>
     </div>
+  </div>
 
-    <div class="timeline">
-      <div class="timeline-line"></div>
-      <div class="timeline-milestones">
-        <div class="timeline-milestone">
-          <span class="tm-month">Month 1–2</span>
-          <span class="tm-dot"></span>
-          <span class="tm-label">Brand launch<br>Storefront live</span>
+  <!-- AG1 / Seed parallel -->
+  <div class="bg-moss" style="padding:5rem 0; margin-top:4rem;">
+    <div class="section-inner">
+      <h3 class="reveal-up" style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(28px,4vw,36px); color:var(--stone); text-align:center; margin-bottom:3rem;">The AG1 / Seed Health moment for plant biology.</h3>
+      <div class="two-col reveal-up">
+        <div>
+          <p>In 2012, the probiotic supplement category was fragmented, ingredient-led, and pharmacy-shelf. The science was validated but the brand was non-existent. AG1 and Seed Health built premium DTC brands on top of that science. They did not discover anything new. They built the consumer layer the science had been waiting for.</p>
+          <p>Result: Seed became Target's fastest-growing supplement brand. AG1 crossed $100M ARR. The category is now a $3.29B market.</p>
         </div>
-        <div class="timeline-milestone">
-          <span class="tm-month">Month 3–4</span>
-          <span class="tm-dot"></span>
-          <span class="tm-label">First 1,000<br>customers</span>
+        <div>
+          <p>Mycoria is the same move in plant biology. The science is validated across 250+ trials with an 89% success rate. The EU PFC 3 certification exists. No premium consumer brand has been built on top of it. The shelf is empty.</p>
+          <p>We are not inventing the category. We are building the brand the category has been waiting for.</p>
         </div>
-        <div class="timeline-milestone">
-          <span class="tm-month">Month 6</span>
-          <span class="tm-dot"></span>
-          <span class="tm-label">$500K ARR<br>Subscribe base</span>
-        </div>
-        <div class="timeline-milestone">
-          <span class="tm-month">Month 12</span>
-          <span class="tm-dot"></span>
-          <span class="tm-label">$2M ARR<br>SEO compounding</span>
-        </div>
-        <div class="timeline-milestone">
-          <span class="tm-month">Month 18</span>
-          <span class="tm-dot"></span>
-          <span class="tm-label">$7M ARR<br>Full pipeline</span>
-        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <table class="ws-table reveal-up">
+      <tr><td>Premium organic single-dose biostimulant sachet</td><td>No competitor has this format. Single-serve = low barrier, high repeat rate.</td></tr>
+      <tr><td>Plant-signaling / mycorrhizal science as brand</td><td>The cultural moment for this story is now. No brand owns it.</td></tr>
+      <tr><td>DTC subscription with sovereign tech stack</td><td>All competitors sell through retail or Amazon. No DTC subscription infrastructure exists.</td></tr>
+      <tr><td>Foliar spray format</td><td>Every competitor is granular, soil drench, or drip. Foliar is faster-acting and visually demonstrable.</td></tr>
+    </table>
+
+    <h3 class="reveal-up" style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:28px; color:var(--clay); text-align:center; margin:4rem 0 2.5rem;">The DTC Analog Proof</h3>
+    <div class="two-col reveal-up">
+      <div>
+        <h4>Arber</h4>
+        <p>Arber (bio-pesticides, $30M+ raised) is the closest DTC analog in brand quality and premium-garden consumer targeting. Not a biostimulant, zero product overlap. What Arber proves: a premium DTC brand built on biological science with strong visual identity and a grower-community focus can build significant revenue and raise institutional capital in this category.</p>
+      </div>
+      <div>
+        <h4>Sunday</h4>
+        <p>Sunday (lawn care DTC, $70M+ raised, 1.1 billion sq ft treated) proves that a subscription-based, science-led DTC brand focused on a specific outdoor-care outcome can scale at pace. Sunday's model, science plans, subscription delivery, direct grower relationship, is exactly the Mycoria model applied to a higher-value customer segment with stronger unit economics.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SECTION 06 — CLOSE ===== -->
+<!-- ===== SECTION 05 — THE VISUAL SYSTEM ===== -->
+<section id="visual" class="section bg-forest">
+  <div class="section-inner">
+    <p class="section-label reveal-up">THE VISUAL SYSTEM</p>
+    <h2 class="section-headline reveal-up">Mycoria Is a Built Brand.<br>Not a Concept.</h2>
+    <p class="section-sublabel reveal-up">Name. Architecture. Visual system. Packaging. Voice. Domain. All resolved.</p>
+
+    <div class="palette reveal-stagger">
+      <div class="swatch" style="background:#112018;"><b style="color:var(--stone);">#112018</b><s style="color:var(--stone);">Forest</s></div>
+      <div class="swatch" style="background:#1F2B22;"><b style="color:var(--stone);">#1F2B22</b><s style="color:var(--stone);">Deep Moss</s></div>
+      <div class="swatch" style="background:#2E2A26;"><b style="color:var(--stone);">#2E2A26</b><s style="color:var(--stone);">Soil</s></div>
+      <div class="swatch" style="background:#B9A78A;"><b style="color:var(--forest);">#B9A78A</b><s style="color:var(--forest);">Clay</s></div>
+      <div class="swatch" style="background:#E5E2DB;"><b style="color:var(--forest);">#E5E2DB</b><s style="color:var(--forest);">Stone</s></div>
+    </div>
+
+    <div class="type-specimen reveal-up">
+      <div class="t-label">Cormorant Garamond · Display</div>
+      <div class="t-serif">Aa Bb Cc · Soil Biology. Stronger Plants.</div>
+      <div class="t-label">Inter · Body</div>
+      <div class="t-sans">Aa Bb Cc · 250+ field trials. 89% success rate.</div>
+    </div>
+
+    <div class="mesh-showcase reveal-up">
+      <img class="mesh-parallax-img" src="images/mesh-hero.svg" alt="Mycoria mycelial mesh, primary brand motif" loading="lazy" onerror="this.src='images/mesh-hero-preview.png'" />
+    </div>
+    <p class="mesh-caption reveal-up">MYCORIA MYCELIAL MESH · PRIMARY BRAND MOTIF</p>
+  </div>
+
+  <!-- Voice -->
+  <div class="bg-moss" style="padding:5rem 0; margin:4rem 0;">
+    <div class="section-inner">
+      <h3 class="reveal-up" style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(26px,3.5vw,32px); color:var(--stone); margin-bottom:2.5rem;">The Voice</h3>
+      <div class="cards cards-4 reveal-stagger">
+        <div class="card card--clay-top">
+          <span class="card-tag">Specific, not aspirational</span>
+          <p>Every claim is traceable to data. We do not say "better plants." We say "80-90% fertiliser utilisation vs. the conventional 10-15%." The reader who wants proof gets proof. The reader who wants the bottom line gets a number.</p>
+        </div>
+        <div class="card card--clay-top">
+          <span class="card-tag">Confident, not aggressive</span>
+          <p>We are not selling against competitors. We are describing a mechanism that works. The confidence comes from the science, not from the marketing. The tone is a senior agronomist who also happens to write well.</p>
+        </div>
+        <div class="card card--clay-top">
+          <span class="card-tag">No woo</span>
+          <p>"Miracle," "revolutionary," "game-changer," "ancient wisdom", none of it appears anywhere in the Mycoria voice. The mycorrhizal network mechanism is remarkable enough without embellishment. We let it be.</p>
+        </div>
+        <div class="card card--clay-top">
+          <span class="card-tag">Compliant at copy level</span>
+          <p>FIFRA compliance is not a legal afterthought. It is built into every content template, every email flow, every product description. No disease treatment claims. No growth hormone framing. The Agrarius™ mechanism is fully expressible without crossing any regulatory line.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lookbook -->
+  <div class="lookbook-hero reveal-up">
+    <img src="images/sachet-hero.png" alt="Mycoria sachet, full-bleed lookbook" loading="lazy" onerror="this.style.display='none'" />
+  </div>
+  <div class="lookbook-2">
+    <img src="images/sachet-front.png" alt="Mycoria sachet front view" loading="lazy" onerror="this.style.display='none'" />
+    <img src="images/spray-bottle.png" alt="Mycoria spray bottle" loading="lazy" onerror="this.style.display='none'" />
+  </div>
+  <div class="lookbook-full">
+    <img src="images/paired-setup.png" alt="Mycoria product family" loading="lazy" onerror="this.style.display='none'" />
+  </div>
+</section>
+
+<!-- ===== SECTION 06 — THE OPERATING SYSTEM ===== -->
+<section id="machine" class="section bg-moss">
+  <div class="section-inner">
+    <p class="section-label reveal-up">THE OPERATING SYSTEM</p>
+    <h2 class="section-headline reveal-up">What Powers This Brand<br>Is Not Standard.</h2>
+    <p class="section-sublabel reveal-up">Every pipeline below replaces what would conventionally cost $300K-$600K/year. These are owned systems, not rented agency spend.</p>
+
+    <div class="cost-frame reveal-up">
+      <h4>What a normal DTC brand launch costs (agency model):</h4>
+      <table class="cost-table">
+        <tr><td>Marketing retainer</td><td>$15,000-$30,000/mo</td><td>$180K-$360K/yr</td></tr>
+        <tr><td>SEO agency</td><td>$5,000-$10,000/mo</td><td>$60K-$120K/yr</td></tr>
+        <tr><td>Email / retention</td><td>$3,000-$8,000/mo</td><td>$36K-$96K/yr</td></tr>
+        <tr><td>Web development</td><td>$15,000-$25,000/mo</td><td>$180K-$300K/yr</td></tr>
+        <tr><td>Social media</td><td>$5,000-$7,000/mo</td><td>$60K-$84K/yr</td></tr>
+        <tr class="total"><td>Total</td><td>$43K-$80K/mo</td><td>$516K-$960K/yr</td></tr>
+      </table>
+      <p class="note">Before a single dollar of ad spend.</p>
+    </div>
+
+    <p class="machine-bridge reveal-up">Our agentic systems replace this stack. They run 24/7, compound over time, and are owned, not rented.</p>
+
+    <div class="cards cards-4 reveal-stagger">
+      <div class="card card--clay-top">
+        <span class="card-tag">13-PHASE SYSTEM · PROGRAMMATIC LONG-TAIL · TECHNICAL SEO NATIVE</span>
+        <h3>Organic Traffic That Compounds</h3>
+        <p>A 13-phase brand-agnostic system deployed across multiple DTC brands. Not a content calendar, a compounding organic traffic engine.</p>
+        <p style="margin-top:0.8rem;">Full topical map across all five customer segments. Agentic pipeline: keyword to brief to research to draft to humanisation gate to publish. Programmatic pages for location and crop type combinations that capture high-intent searches a conventional calendar never reaches. Technical SEO native to the sovereign stack, Core Web Vitals, structured data, sitemap automation built in from day one.</p>
+        <p style="margin-top:0.8rem;color:var(--clay);opacity:0.9;">Output: Organic contribution begins month 3. Material CAC reduction by month 6. Structural advantage by month 12 that cannot be closed with a campaign.</p>
+      </div>
+      <div class="card card--clay-top">
+        <span class="card-tag">FULL LIFECYCLE · SEGMENT-AWARE · EMAIL + SMS + WHATSAPP · FIFRA-COMPLIANT GATES</span>
+        <h3>The Lifecycle That Turns One Purchase Into a Subscription</h3>
+        <p>Full lifecycle system: welcome series, post-purchase drip, educational content, re-engagement, win-back. Built on Supabase infrastructure, tested across multiple brands, segment-aware from the first message.</p>
+        <p style="margin-top:0.8rem;">Cannabis growers receive content about flowering phase optimisation. Citrus belt homeowners receive content about tree vitality and stress resilience. Homesteaders receive soil biology education. Different customers, different conversations, same product.</p>
+        <p style="margin-top:0.8rem;">SMS for time-sensitive moments. WhatsApp for the mobile-native growing community. Every copy template has FIFRA compliance gates built in, no prohibited claim passes through.</p>
+        <p style="margin-top:0.8rem;color:var(--clay);opacity:0.9;">Target: 40%+ repeat purchase rate within 6 months from lifecycle flows alone.</p>
+      </div>
+      <div class="card card--clay-top">
+        <span class="card-tag">AGENTIC BRIEF → CREATIVE → HUMANISATION → DISTRIBUTION · META RESTRICTED-CATEGORY PLAYBOOK</span>
+        <h3>Content That Earns Trust Before It Asks for a Sale</h3>
+        <p>Cannabis-adjacent categories present specific Meta advertising constraints. Our restricted-category playbook covers which claim structures pass, which creative formats work, and how to build a content library that converts within platform constraints, without ever naming the restricted crop on the public-facing brand.</p>
+        <p style="margin-top:0.8rem;">Agentic brief generation to creative direction to humanisation gate to platform-native distribution. UGC pipeline identifies, qualifies, and activates authentic grower voices, the primary trust signal in this category. UGC typically outperforms brand creative 2-3× in conversion.</p>
+        <p style="margin-top:0.8rem;">SEO content adapts to social: one research article becomes five posts, three reels, and a Reddit thread. The content compounds.</p>
+      </div>
+      <div class="card card--clay-top">
+        <span class="card-tag">NEXT.JS · MEDUSA.JS · SUPABASE · ZERO SHOPIFY DEPENDENCY</span>
+        <h3>A Tech Stack That Owns the Customer Relationship</h3>
+        <p>Mycoria operates in a cannabis-adjacent category. Shopify has de-platformed cannabis-adjacent brands twice in four years. We are not building on rented infrastructure.</p>
+        <p style="margin-top:0.8rem;">Next.js frontend. Medusa.js headless commerce backend, own checkout, own customer data, own order management. Subscribe-and-save native to the commerce layer from day one. Supabase CRM and lifecycle backend, already deployed, already tested. Self-hosted customer support. Zero platform terms between Mycoria and its customers.</p>
+        <p style="margin-top:0.8rem;color:var(--clay);opacity:0.9;">The alternative, Shopify + Recharge + Klaviyo + Zendesk, costs $4K-$8K/month in SaaS licences alone before developer time. And it can be taken away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 07 — THE NUMBERS ===== -->
+<section id="numbers" class="section bg-soil">
+  <div class="section-inner">
+    <p class="section-label reveal-up">THE NUMBERS</p>
+    <h2 class="section-headline reveal-up">The Unit Economics Are Exceptional.<br>Here Is Every Number, Defended.</h2>
+
+    <div class="cards cards-3 reveal-stagger" style="margin-top:2rem;">
+      <div class="card card--clay-top">
+        <span class="card-stat" data-counter data-target="25" data-prefix="$">$25</span>
+        <span class="card-stat-label">Single sachet MSRP</span>
+        <p>$25 positions Mycoria at premium without approaching sticker-shock threshold. For the cannabis home grower, $25 is a rounding error relative to their nutrient spend.</p>
+      </div>
+      <div class="card card--clay-top">
+        <span class="card-stat" data-counter data-target="69" data-prefix="$">$69</span>
+        <span class="card-stat-label">4-pack subscribe &amp; save · ~$17.25/sachet</span>
+        <p>The revenue engine. $69/quarter = $276/year. The 4-pack maps to one full cannabis grow cycle. The subscription reminder is biological, not a marketing push.</p>
+      </div>
+      <div class="card card--clay-top">
+        <span class="card-stat" data-counter data-target="60" data-prefix="~$">~$60</span>
+        <span class="card-stat-label">Blended AOV</span>
+        <p>At a 60/40 single-to-subscription mix shifting to 40/60 by month 12 as lifecycle flows convert single purchasers. All milestone projections use this figure.</p>
+      </div>
+    </div>
+
+    <h4 class="reveal-up" style="font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--clay); margin:3.5rem 0 0.5rem;">Unit Economics</h4>
+    <table class="data-table table--clay reveal-up">
+      <tr><td>MSRP (single sachet)</td><td>$25</td></tr>
+      <tr><td>COGS per sachet</td><td>&lt;$4 (Humalite + water + packaging)</td></tr>
+      <tr><td>Gross margin at MSRP</td><td>~85%</td></tr>
+      <tr><td>Gross margin on subscription</td><td>~75%</td></tr>
+      <tr><td>Blended gross margin</td><td>~80%</td></tr>
+      <tr><td>Blended AOV</td><td>~$60</td></tr>
+      <tr><td>Blended CAC target</td><td>&lt;$40</td></tr>
+      <tr><td>LTV 18 months (cannabis tier)</td><td>~$250 (7 sachets/yr × $25 × 18 months)</td></tr>
+      <tr><td>LTV:CAC ratio</td><td>6.25× (at $40 CAC / $250 LTV)</td></tr>
+      <tr><td>Repeat purchase target</td><td>40%+ within 6 months</td></tr>
+    </table>
+
+    <h4 class="reveal-up" style="font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--clay); margin:3rem 0 0.5rem;">Milestones</h4>
+    <table class="milestone-table reveal-up">
+      <tr><td>90 days</td><td>1,000 customers</td><td>$50,000</td><td>CAC &lt;$40</td></tr>
+      <tr><td>6 months</td><td>5,000 customers</td><td>$300,000</td><td>CAC &lt;$35</td></tr>
+      <tr><td>12 months</td><td>25,000 customers</td><td>$1,800,000</td><td>CAC &lt;$30</td></tr>
+      <tr><td>18 months</td><td>70,000 customers</td><td>$7,000,000</td><td>CAC &lt;$25</td></tr>
+    </table>
+
+    <p class="reveal-up" style="max-width:760px; margin-top:2rem;">At 18 months: 70,000 active customers × $100 average annual revenue = $7M. Acquiring ~100,000 customers over 18 months at &lt;$25 blended CAC = $2.5M total acquisition spend. Against $7M top-line at 80% gross margin = $5.6M gross profit. The economics work.</p>
+
+    <div class="scenarios reveal-stagger">
+      <div class="scenario">
+        <div class="sc-name">Conservative floor</div>
+        <div class="sc-num">$3.6M</div>
+        <p>Half base-case CAC efficiency. SEO underperforms. Paid runs 40% over.</p>
+      </div>
+      <div class="scenario">
+        <div class="sc-name">Base case</div>
+        <div class="sc-num">$7M</div>
+        <p>All projections met. This is the filed target.</p>
+      </div>
+      <div class="scenario">
+        <div class="sc-name">Stretch</div>
+        <div class="sc-num">$14.4M</div>
+        <p>2% SAM capture. Requires one of: viral community moment, second SKU at month 12, or wholesale channel from month 9.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 08 — THE PLAN ===== -->
+<section id="plan" class="section bg-moss">
+  <div class="section-inner">
+    <p class="section-label reveal-up">THE PLAN</p>
+    <h2 class="section-headline reveal-up">Phased. Disciplined.<br>No Wasted Months.</h2>
+
+    <div class="phases reveal-stagger">
+      <div class="phase-card">
+        <div class="ph-name">Phase 1 · Foundation</div>
+        <span class="ph-target">Days 1-90 · 1,000 customers · $50K · CAC &lt;$40</span>
+        <ul>
+          <li>Tech stack deployed. Next.js, Medusa.js, Supabase, lifecycle live.</li>
+          <li>20 foundation SEO articles published. Programmatic pages generated.</li>
+          <li>Paid acquisition launched, cannabis growers first, highest LTV tier.</li>
+          <li>Email lifecycle active from day one, every customer gets a defined experience.</li>
+          <li>Community seeding: science-first content in grower communities. No hard sales.</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <div class="ph-name">Phase 2 · Momentum</div>
+        <span class="ph-target">Months 4-6 · 5,000 customers · $300K · CAC &lt;$35</span>
+        <ul>
+          <li>Organic begins. Foundation articles indexed, ranking, converting.</li>
+          <li>UGC pipeline activates, first cohort documenting results mid-grow.</li>
+          <li>Tier 2 (citrus belt) activated on Meta: Florida, Texas, California, Arizona.</li>
+          <li>Blended CAC begins falling as organic share increases.</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <div class="ph-name">Phase 3 · Scale</div>
+        <span class="ph-target">Months 7-12 · 25,000 customers · $1.8M · CAC &lt;$30</span>
+        <ul>
+          <li>System efficiency. Retention OS has 6-month cohort data.</li>
+          <li>Subscription mix versus single-purchase mix is known, media plan adjusts.</li>
+          <li>Tier 3 (homestead and regenerative) activated. Different creative tonality.</li>
+          <li>Second SKU evaluation at month 9, data-driven decision.</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <div class="ph-name">Phase 4 · Compound</div>
+        <span class="ph-target">Months 13-18 · 70,000 customers · $7M · CAC &lt;$25</span>
+        <ul>
+          <li>Mycoria is an established organic traffic engine, a subscription business with defined LTV, a community-validated product.</li>
+          <li>Paid acquisition as a percentage of revenue decreases. Organic carries more.</li>
+          <li>Subscription base provides predictable recurring revenue.</li>
+          <li>Canada market evaluation: federal home-grow legal, large per-capita base.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="channel-strip reveal-stagger">
+      <div><div class="ch-month">Month 3</div><div class="ch-mix">80% paid · 20% organic + referral</div></div>
+      <div><div class="ch-month">Month 12</div><div class="ch-mix">50% paid · 30% organic · 20% UGC + referral</div></div>
+      <div><div class="ch-month">Month 18</div><div class="ch-mix">35% paid · 40% organic · 25% UGC + referral + renewals</div></div>
+    </div>
+
+    <div class="geo-block reveal-up">
+      <h4>Where We Launch First</h4>
+      <div class="geo-row">
+        <span class="g-when">Months 1-6</span>
+        <p>Cannabis-legal states with highest home grower density, California, Colorado, Michigan, Oregon, Washington. Deepest community, most active input purchasers, highest LTV.</p>
+      </div>
+      <div class="geo-row">
+        <span class="g-when">Months 4-9</span>
+        <p>Citrus belt overlay, Florida, Texas, California, Arizona. Separate creative, separate targeting, same product.</p>
+      </div>
+      <div class="geo-row">
+        <span class="g-when">Month 6+</span>
+        <p>National rollout to all home grower and regenerative cohorts. SEO is national from day one, organic traffic has no geo-gate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 09 — CLOSE ===== -->
 <section id="close">
   <div class="close-bg"></div>
+  <div class="close-mesh"></div>
   <div class="close-content">
-    <img src="images/logo.png"
-      alt="Mycoria" class="close-logo" onerror="this.style.display='none'" />
-    <h2 class="close-headline">Stronger Roots.<br>Better Grows.</h2>
+    <img class="close-logo" src="images/logo-light.svg" alt="Mycoria" onerror="this.style.display='none'" />
+    <h2 class="close-headline">The science has been working for decades.<br>It was just waiting for someone<br>to build it a front door.</h2>
     <div class="close-rule"></div>
-    <p class="close-body">The science exists. The trials are done. The technology is proven across 250+ independent field trials on multiple continents. What hasn't existed until now is a world-class consumer brand built around it, and the agentic infrastructure to grow it at a fraction of traditional cost.</p>
-    <p class="close-body">This is Mycoria. This is what we're building.</p>
-    <div class="close-rule"></div>
-    <p class="close-domain">growmycoria.com</p>
-    <p class="close-credit">Powered by Agrarius™ · Built by Icarus Digital</p>
+
+    <div class="partnership">
+      <div>
+        <h4>What this brings to MVMD</h4>
+        <ul>
+          <li>The Mycoria brand, name, visual system, packaging, domain, voice</li>
+          <li>Sovereign tech stack, own checkout, own data, no platform dependency</li>
+          <li>Agentic SEO pipeline, compounding organic from month 3</li>
+          <li>Retention OS, full lifecycle, segment-aware, FIFRA-compliant</li>
+          <li>Social and content pipeline, agentic, UGC-integrated</li>
+          <li>Meta restricted-category expertise, operational playbook, not theory</li>
+          <li>Unit economics model, every number tracked monthly</li>
+          <li>Infrastructure that replaces $300K-$600K/year of conventional spend</li>
+        </ul>
+      </div>
+      <div>
+        <h4>What MVMD brings</h4>
+        <ul>
+          <li>Agrarius™, validated science, 250+ trials, 89% success rate</li>
+          <li>EU PFC 3 certification, regulatory credibility that no competitor has</li>
+          <li>Supply infrastructure, Humalite source, formulation, fulfilment</li>
+          <li>The Eons/Quicksome™ architecture precedent, already proven</li>
+          <li>Long-term Agrarius™ ingredient brand equity as the category grows</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="close-statement">The consumer knows Mycoria. The industry knows Agrarius™. Each layer holds its equity. None of them dilute the others.</p>
+
+    <p class="close-footer">Mycoria · Powered by Agrarius™<br>growmycoria.com · Confidential, Prepared for MVMD Inc. · 2026</p>
   </div>
 </section>
 
@@ -734,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
   gsap.set('.hero-scroll', { y: -10 });
   gsap.set('.hero-rule', { scaleX: 0, transformOrigin: 'center center' });
 
-  // Hero timeline — use to() not from() so state is explicit, no delay needed
+  // Hero timeline
   const heroTl = gsap.timeline({ delay: 0.2 });
   heroTl
     .to('.hero-logo', { autoAlpha: 1, y: 0, duration: 1.2, ease: 'power3.out' })
@@ -744,12 +1088,12 @@ document.addEventListener('DOMContentLoaded', () => {
     .to('.hero-label', { autoAlpha: 1, y: 0, duration: 0.8 }, '-=0.4')
     .to('.hero-scroll', { autoAlpha: 0.5, y: 0, duration: 0.8 }, '-=0.3');
 
-  // Reveal on scroll — use fromTo() to lock start/end states explicitly
+  // Reveal on scroll
   gsap.utils.toArray('.reveal-up').forEach(el => {
     gsap.fromTo(el,
       { autoAlpha: 0, y: 50 },
       {
-        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
         autoAlpha: 1, y: 0, duration: 0.9, ease: 'power3.out'
       }
     );
@@ -759,8 +1103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.fromTo(Array.from(container.children),
       { autoAlpha: 0, y: 40 },
       {
-        scrollTrigger: { trigger: container, start: 'top 80%', toggleActions: 'play none none none' },
-        autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.15
+        scrollTrigger: { trigger: container, start: 'top 82%', toggleActions: 'play none none none' },
+        autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.13
       }
     );
   });
@@ -771,69 +1115,75 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
     const decimals = parseInt(el.dataset.decimals || 0);
+    const finalText = el.textContent;
     ScrollTrigger.create({
-      trigger: el, start: 'top 80%', once: true,
+      trigger: el, start: 'top 85%', once: true,
       onEnter: () => {
         gsap.to({ val: 0 }, {
           val: target, duration: 2, ease: 'power2.out',
           onUpdate: function() {
             el.textContent = prefix + this.targets()[0].val.toFixed(decimals) + suffix;
-          }
+          },
+          onComplete: function() { el.textContent = finalText; }
         });
       }
     });
   });
 
-  // Science image parallax
-  gsap.to('.science-image', {
-    scrollTrigger: { trigger: '#science', start: 'top bottom', end: 'bottom top', scrub: true },
-    y: -80, ease: 'none'
+  // Mesh parallax (background layers + showcase image)
+  gsap.utils.toArray('.mesh-parallax').forEach(el => {
+    gsap.to(el, {
+      scrollTrigger: { trigger: el.closest('.section') || el, start: 'top bottom', end: 'bottom top', scrub: true },
+      y: -60, ease: 'none'
+    });
+  });
+  gsap.utils.toArray('.mesh-parallax-img').forEach(el => {
+    gsap.fromTo(el,
+      { y: 0 },
+      { scrollTrigger: { trigger: el.closest('.mesh-showcase'), start: 'top bottom', end: 'bottom top', scrub: true },
+        y: -40, ease: 'none' }
+    );
   });
 
-  // Product image entrance
+  // Science media stack subtle parallax
+  gsap.to('.sci-media-stack', {
+    scrollTrigger: { trigger: '#science', start: 'top bottom', end: 'bottom top', scrub: true },
+    y: -50, ease: 'none'
+  });
+
+  // Lookbook hero Ken Burns
+  gsap.to('.lookbook-hero img', {
+    scrollTrigger: { trigger: '.lookbook-hero', start: 'top bottom', end: 'bottom top', scrub: true },
+    scale: 1.04, ease: 'none'
+  });
+
+  // Product hero entrance
   gsap.fromTo('.product-main',
     { autoAlpha: 0, scale: 0.92 },
-    { scrollTrigger: { trigger: '.product-main', start: 'top 75%', toggleActions: 'play none none none' },
+    { scrollTrigger: { trigger: '.product-main', start: 'top 80%', toggleActions: 'play none none none' },
       autoAlpha: 1, scale: 1, duration: 1.4, ease: 'power3.out' }
   );
 
-  // Paired shot Ken Burns
-  gsap.to('.paired-shot', {
-    scrollTrigger: { trigger: '.paired-shot-wrap', start: 'top bottom', end: 'bottom top', scrub: true },
-    scale: 1.06, ease: 'none'
+  // Competitor matrix: dots stagger, Mycoria last with pulse
+  const compDots = gsap.utils.toArray('#posMatrix .m-dot.comp');
+  const mycoriaDot = document.querySelector('#posMatrix .m-dot.mycoria');
+  gsap.set([...compDots, mycoriaDot], { autoAlpha: 0, scale: 0.4 });
+  ScrollTrigger.create({
+    trigger: '#posMatrix', start: 'top 75%', once: true,
+    onEnter: () => {
+      const tl = gsap.timeline();
+      tl.to(compDots, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)', stagger: 0.3 });
+      tl.to(mycoriaDot, { autoAlpha: 1, scale: 1, duration: 0.6, ease: 'power2.out' }, '+=0.2');
+      tl.to(mycoriaDot, { scale: 1.15, duration: 0.5, ease: 'sine.inOut', yoyo: true, repeat: 1 });
+    }
   });
-
-  // Pipeline cards
-  gsap.fromTo('.pipeline-card',
-    { autoAlpha: 0, y: 60, scale: 0.95 },
-    { scrollTrigger: { trigger: '.pipeline-grid', start: 'top 75%', toggleActions: 'play none none none' },
-      autoAlpha: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out', stagger: 0.2 }
-  );
-
-  // Timeline line draw
-  gsap.fromTo('.timeline-line',
-    { scaleX: 0 },
-    { scrollTrigger: { trigger: '.timeline', start: 'top 75%', toggleActions: 'play none none none' },
-      scaleX: 1, transformOrigin: 'left', duration: 1.5, ease: 'power3.inOut' }
-  );
-  gsap.fromTo('.timeline-milestone',
-    { autoAlpha: 0, y: 20 },
-    { scrollTrigger: { trigger: '.timeline', start: 'top 75%', toggleActions: 'play none none none' },
-      autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.25, delay: 0.5 }
-  );
 
   // Close section breathe
-  gsap.to('.close-bg', {
-    scale: 1.06, duration: 12, ease: 'sine.inOut', yoyo: true, repeat: -1
-  });
-  gsap.fromTo('.close-content > *',
-    { autoAlpha: 0, y: 40 },
-    { scrollTrigger: { trigger: '#close', start: 'top 65%', toggleActions: 'play none none none' },
-      autoAlpha: 1, y: 0, duration: 1.2, ease: 'power3.out', stagger: 0.2 }
-  );
+  gsap.to('.close-bg', { scale: 1.06, duration: 14, ease: 'sine.inOut', yoyo: true, repeat: -1 });
 
   // Refresh triggers once images/fonts settle
   window.addEventListener('load', () => ScrollTrigger.refresh());
+  ScrollTrigger.refresh();
 });
 </script>
 </body>
