@@ -166,6 +166,9 @@ img, video { display: block; max-width: 100%; }
 .logo { width: clamp(120px, 14vw, 200px); height: auto; display: block; }
 .logo--corner { position: absolute; top: var(--slide-padding-y); left: var(--safe-zone-left); z-index: 4; width: clamp(110px, 12vw, 180px); }
 .logo--corner-sm { position: absolute; top: var(--slide-padding-y); left: var(--safe-zone-left); z-index: 4; width: clamp(72px, 7vw, 100px); }
+/* Reserve a top safe-zone so centered content never collides with the corner logo */
+.slide:has(.logo--corner) .slide__content,
+.slide:has(.logo--corner-sm) .slide__content { padding-top: 22vh; }
 
 /* === FOOTER STRIP === */
 .footer-strip {
